@@ -1,0 +1,13 @@
+disabled_rules:
+- todo
+- force_cast
+- trailing_whitespace
+- identifier_name
+- force_try
+line_length: 150
+opt_in_rules:
+- empty_count
+- missing_docs
+excluded:
+- Carthage
+- Pods

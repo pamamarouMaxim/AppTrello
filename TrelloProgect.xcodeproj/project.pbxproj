@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F89522109F1ED00A70ED5 /* ApiErrors.swift */; };
+		230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230F89542109F7C600A70ED5 /* Boards.storyboard */; };
+		2338A68A2109B00100468395 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A6892109B00100468395 /* Board.swift */; };
+		2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A68B2109BF8100468395 /* BoardTableViewCell.swift */; };
+		235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE12109220E006E5861 /* BoardTableViewController.swift */; };
+		235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE321092756006E5861 /* AddBoardViewController.swift */; };
+		23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23741FD5210775F4008EE152 /* AppDelegate.swift */; };
+		23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23741FD7210775F4008EE152 /* LoginViewController.swift */; };
+		23741FDB210775F4008EE152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FD9210775F4008EE152 /* Main.storyboard */; };
+		23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23741FDC210775F4008EE152 /* TrelloProgect.xcdatamodeld */; };
+		23741FE0210775F4008EE152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23741FDF210775F4008EE152 /* Assets.xcassets */; };
+		23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FE1210775F4008EE152 /* LaunchScreen.storyboard */; };
+		239D4BD72107811200E5B0C3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D4BD62107811100E5B0C3 /* ViewModel.swift */; };
+		23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6DD210783B300A258FA /* EnterViewController.swift */; };
+		23E1C6E02107845A00A258FA /* trello.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E1C6DF2107845A00A258FA /* trello.png */; };
+		23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E121078B0200A258FA /* ServerManager.swift */; };
+		23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E521078BBF00A258FA /* LoginValidation.swift */; };
+		23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E92107990B00A258FA /* UserSettings.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		230F89522109F1ED00A70ED5 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
+		230F89542109F7C600A70ED5 /* Boards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Boards.storyboard; sourceTree = "<group>"; };
+		2338A6892109B00100468395 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		2338A68B2109BF8100468395 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
+		235F1FE12109220E006E5861 /* BoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
+		235F1FE321092756006E5861 /* AddBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardViewController.swift; sourceTree = "<group>"; };
+		23741FD2210775F4008EE152 /* TrelloProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrelloProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23741FD5210775F4008EE152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23741FD7210775F4008EE152 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		23741FDA210775F4008EE152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23741FDD210775F4008EE152 /* TrelloProgect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrelloProgect.xcdatamodel; sourceTree = "<group>"; };
+		23741FDF210775F4008EE152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23741FE2210775F4008EE152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		23741FE4210775F4008EE152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		239D4BD62107811100E5B0C3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = /Users/maximPanamarou/Desktop/TrelloProgect/TrelloProgect/ViewModel/ViewModel.swift; sourceTree = "<absolute>"; };
+		23E1C6DD210783B300A258FA /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		23E1C6DF2107845A00A258FA /* trello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trello.png; path = Images/trello.png; sourceTree = "<group>"; };
+		23E1C6E121078B0200A258FA /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		23E1C6E521078BBF00A258FA /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
+		23E1C6E92107990B00A258FA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		B8D767C68E9DA4FAC5057019 /* Pods-TrelloProgect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrelloProgect.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrelloProgect/Pods-TrelloProgect.release.xcconfig"; sourceTree = "<group>"; };
+		E07829A4905092CD1F1C0609 /* Pods-TrelloProgect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrelloProgect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrelloProgect/Pods-TrelloProgect.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23741FCF210775F4008EE152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		235F1FD821090796006E5861 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23E1C6E121078B0200A258FA /* ServerManager.swift */,
+				23E1C6E92107990B00A258FA /* UserSettings.swift */,
+				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
+				2338A68B2109BF8100468395 /* BoardTableViewCell.swift */,
+				2338A6892109B00100468395 /* Board.swift */,
+				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		235F1FD9210907B9006E5861 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				235F1FDC210907F2006E5861 /* LoginViewControllers */,
+				235F1FE12109220E006E5861 /* BoardTableViewController.swift */,
+				235F1FE321092756006E5861 /* AddBoardViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		235F1FDB210907DA006E5861 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				239D4BD62107811100E5B0C3 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		235F1FDC210907F2006E5861 /* LoginViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				23E1C6DD210783B300A258FA /* EnterViewController.swift */,
+				23741FD7210775F4008EE152 /* LoginViewController.swift */,
+			);
+			path = LoginViewControllers;
+			sourceTree = "<group>";
+		};
+		23741FC9210775F4008EE152 = {
+			isa = PBXGroup;
+			children = (
+				23741FD4210775F4008EE152 /* TrelloProgect */,
+				23741FD3210775F4008EE152 /* Products */,
+				FD73B1120A24C44A075BCFF6 /* Pods */,
+				790E645592F84A2C021457E0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		23741FD3210775F4008EE152 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23741FD2210775F4008EE152 /* TrelloProgect.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23741FD4210775F4008EE152 /* TrelloProgect */ = {
+			isa = PBXGroup;
+			children = (
+				23741FD5210775F4008EE152 /* AppDelegate.swift */,
+				235F1FD9210907B9006E5861 /* ViewControllers */,
+				235F1FDB210907DA006E5861 /* ViewModel */,
+				235F1FD821090796006E5861 /* Model */,
+				23741FD9210775F4008EE152 /* Main.storyboard */,
+				230F89542109F7C600A70ED5 /* Boards.storyboard */,
+				23741FDF210775F4008EE152 /* Assets.xcassets */,
+				23741FE1210775F4008EE152 /* LaunchScreen.storyboard */,
+				23741FE4210775F4008EE152 /* Info.plist */,
+				23741FDC210775F4008EE152 /* TrelloProgect.xcdatamodeld */,
+				23E1C6DF2107845A00A258FA /* trello.png */,
+			);
+			path = TrelloProgect;
+			sourceTree = "<group>";
+		};
+		790E645592F84A2C021457E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD73B1120A24C44A075BCFF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E07829A4905092CD1F1C0609 /* Pods-TrelloProgect.debug.xcconfig */,
+				B8D767C68E9DA4FAC5057019 /* Pods-TrelloProgect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23741FD1210775F4008EE152 /* TrelloProgect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23741FE7210775F4008EE152 /* Build configuration list for PBXNativeTarget "TrelloProgect" */;
+			buildPhases = (
+				FFD55A6BED420F32AF0DA7BD /* [CP] Check Pods Manifest.lock */,
+				23741FCE210775F4008EE152 /* Sources */,
+				23741FCF210775F4008EE152 /* Frameworks */,
+				23741FD0210775F4008EE152 /* Resources */,
+				2391D57B210777A9004F8DFE /* Highlight */,
+				2391D57C21077B1F004F8DFE /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrelloProgect;
+			productName = TrelloProgect;
+			productReference = 23741FD2210775F4008EE152 /* TrelloProgect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23741FCA210775F4008EE152 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Maxim Panamarou";
+				TargetAttributes = {
+					23741FD1210775F4008EE152 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 23741FCD210775F4008EE152 /* Build configuration list for PBXProject "TrelloProgect" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23741FC9210775F4008EE152;
+			productRefGroup = 23741FD3210775F4008EE152 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23741FD1210775F4008EE152 /* TrelloProgect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23741FD0210775F4008EE152 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */,
+				23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */,
+				23741FE0210775F4008EE152 /* Assets.xcassets in Resources */,
+				23741FDB210775F4008EE152 /* Main.storyboard in Resources */,
+				23E1C6E02107845A00A258FA /* trello.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2391D57B210777A9004F8DFE /* Highlight */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Highlight;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nSKIPDIRS=\"/Pods\"\nfind \"${SRCROOT}/\" -type f \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 \\\n| xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n| grep -v \"$SKIPDIRS\" \\\n| perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+		};
+		2391D57C21077B1F004F8DFE /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
+		};
+		FFD55A6BED420F32AF0DA7BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrelloProgect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23741FCE210775F4008EE152 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */,
+				23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */,
+				23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */,
+				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
+				239D4BD72107811200E5B0C3 /* ViewModel.swift in Sources */,
+				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
+				23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */,
+				23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */,
+				235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */,
+				2338A68A2109B00100468395 /* Board.swift in Sources */,
+				2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */,
+				230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */,
+				23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		23741FD9210775F4008EE152 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23741FDA210775F4008EE152 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		23741FE1210775F4008EE152 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23741FE2210775F4008EE152 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23741FE5210775F4008EE152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		23741FE6210775F4008EE152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23741FE8210775F4008EE152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E07829A4905092CD1F1C0609 /* Pods-TrelloProgect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TrelloProgect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chicagobullet.TrelloProgect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23741FE9210775F4008EE152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D767C68E9DA4FAC5057019 /* Pods-TrelloProgect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TrelloProgect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chicagobullet.TrelloProgect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23741FCD210775F4008EE152 /* Build configuration list for PBXProject "TrelloProgect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23741FE5210775F4008EE152 /* Debug */,
+				23741FE6210775F4008EE152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23741FE7210775F4008EE152 /* Build configuration list for PBXNativeTarget "TrelloProgect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23741FE8210775F4008EE152 /* Debug */,
+				23741FE9210775F4008EE152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		23741FDC210775F4008EE152 /* TrelloProgect.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				23741FDD210775F4008EE152 /* TrelloProgect.xcdatamodel */,
+			);
+			currentVersion = 23741FDD210775F4008EE152 /* TrelloProgect.xcdatamodel */;
+			path = TrelloProgect.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 23741FCA210775F4008EE152 /* Project object */;
+}

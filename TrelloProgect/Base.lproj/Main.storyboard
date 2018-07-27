@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6l2-o3-vVT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter View Controller-->
+        <scene sceneID="tKR-Yi-aLn">
+            <objects>
+                <viewController id="NCz-pb-OSJ" customClass="CBEnterViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i0d-KO-jGh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trello.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Ht-ge-i0j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioa-Wy-nrZ">
+                                <rect key="frame" x="94" y="600" width="187.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Come in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="JS2-ka-SFS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Ht-ge-i0j" firstAttribute="bottom" secondItem="ECP-YS-zEb" secondAttribute="bottom" id="4Cr-gb-w0G"/>
+                            <constraint firstItem="ioa-Wy-nrZ" firstAttribute="top" secondItem="2Ht-ge-i0j" secondAttribute="bottom" constant="-67" id="5hU-gi-TIJ"/>
+                            <constraint firstItem="2Ht-ge-i0j" firstAttribute="top" secondItem="i0d-KO-jGh" secondAttribute="top" id="AVw-TH-oPI"/>
+                            <constraint firstItem="ioa-Wy-nrZ" firstAttribute="width" secondItem="2Ht-ge-i0j" secondAttribute="width" multiplier="0.5" id="H1b-e0-Ms6"/>
+                            <constraint firstItem="2Ht-ge-i0j" firstAttribute="trailing" secondItem="ECP-YS-zEb" secondAttribute="trailing" id="mfs-fx-cGn"/>
+                            <constraint firstItem="2Ht-ge-i0j" firstAttribute="leading" secondItem="ECP-YS-zEb" secondAttribute="leading" id="mnU-bf-GtE"/>
+                            <constraint firstItem="ioa-Wy-nrZ" firstAttribute="centerX" secondItem="2Ht-ge-i0j" secondAttribute="centerX" id="zTv-Mf-eSN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ECP-YS-zEb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zPR-0W-S1T"/>
+                    <connections>
+                        <outlet property="enterButton" destination="ioa-Wy-nrZ" id="VpO-TG-vDm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28E-Au-tDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="134"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email adress" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="999-kF-cPo">
+                                <rect key="frame" x="0.0" y="75" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="en8-cd-zJd"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jhi-ie-sfF">
+                                <rect key="frame" x="0.0" y="105" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LXS-Rx-TXA"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLM-0W-nhE">
+                                <rect key="frame" x="16" y="154" width="343" height="30"/>
+                                <state key="normal" title="Sign in "/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NK3-gI-cAV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nLM-0W-nhE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Dk2-Af-cWe"/>
+                            <constraint firstItem="Jhi-ie-sfF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fra-GM-Cu3"/>
+                            <constraint firstItem="999-kF-cPo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JKy-ZR-UlV"/>
+                            <constraint firstItem="nLM-0W-nhE" firstAttribute="top" secondItem="Jhi-ie-sfF" secondAttribute="bottom" constant="19" id="PVn-fo-8WP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nLM-0W-nhE" secondAttribute="trailing" constant="16" id="Toc-vS-vfZ"/>
+                            <constraint firstItem="999-kF-cPo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="V3e-Nr-qa4"/>
+                            <constraint firstItem="Jhi-ie-sfF" firstAttribute="top" secondItem="999-kF-cPo" secondAttribute="bottom" id="b88-eh-y5v"/>
+                            <constraint firstItem="999-kF-cPo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hdf-rD-kfB"/>
+                            <constraint firstItem="Jhi-ie-sfF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qMU-A0-eZe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="nLM-0W-nhE" id="VaP-Xj-rYg"/>
+                        <outlet property="mailTextField" destination="999-kF-cPo" id="Slu-qy-v2X"/>
+                        <outlet property="passwordTextField" destination="Jhi-ie-sfF" id="4fn-bS-fY0"/>
+                        <segue destination="zN5-g4-rlb" kind="show" id="9Xn-Rh-AP0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="133.5832083958021"/>
+        </scene>
+        <!--Boadrs-->
+        <scene sceneID="bdo-eB-Mku">
+            <objects>
+                <tableViewController storyboardIdentifier="BoardTableViewController" id="zN5-g4-rlb" userLabel="Boadrs" customClass="BoardTableViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="606-UW-BnM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Boards" id="I6M-K1-Yp0">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="zN5-g4-rlb" id="HI5-ct-Wmy"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoardTableViewCell" id="BuU-JH-eLp" customClass="BoardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BuU-JH-eLp" id="LOV-B6-8CN" customClass="BoardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTv-Fe-vIh">
+                                            <rect key="frame" x="16" y="1" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="nxw-X0-uZ1">
+                                            <rect key="frame" x="64" y="2" width="306" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="colorOfBoard" destination="CTv-Fe-vIh" id="pbh-d1-jhv"/>
+                                    <outlet property="nameOfBoard" destination="nxw-X0-uZ1" id="Egz-qF-u3S"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zN5-g4-rlb" id="yzV-V7-3YO"/>
+                            <outlet property="delegate" destination="zN5-g4-rlb" id="ATD-56-7f3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="JfB-Or-zq4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GdJ-4D-TOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="134"/>
+        </scene>
+        <!--Add Board View Controller-->
+        <scene sceneID="y9W-Pd-gcR">
+            <objects>
+                <tableViewController storyboardIdentifier="AddBoardViewController" id="5H4-Zf-Jar" customClass="AddBoardViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GbM-LE-IIe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="35f-vu-PUu">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1sS-2V-Ctx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1sS-2V-Ctx" id="yIm-tB-UZo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rui-0S-Goq">
+                                                    <rect key="frame" x="19" y="10" width="48" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New board" textAlignment="natural" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="Pxw-zI-K6v">
+                                                    <rect key="frame" x="108" y="5" width="247" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="5H4-Zf-Jar" id="uNO-L8-FgA"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="dHD-dC-7d1">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yzC-jI-vxS">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yzC-jI-vxS" id="SKv-Pk-Azl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Visible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exR-Nd-s2e">
+                                                    <rect key="frame" x="19" y="10" width="53" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New board" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MBO-PC-qFt">
+                                                    <rect key="frame" x="108" y="5" width="247" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5H4-Zf-Jar" id="mtK-tl-fMX"/>
+                            <outlet property="delegate" destination="5H4-Zf-Jar" id="hxW-m3-5x5"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="nameTextField" destination="Pxw-zI-K6v" id="aeQ-5O-r37"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vS-3X-CKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2159" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0F0-J5-MYI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6l2-o3-vVT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u23-yd-rbM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NCz-pb-OSJ" kind="relationship" relationship="rootViewController" id="v06-GH-T4L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7B-sr-4Um" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1086" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="trello.png" width="611" height="897"/>
+    </resources>
+</document>
