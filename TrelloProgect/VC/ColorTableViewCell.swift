@@ -1,19 +1,16 @@
 //
-//  BoardTableViewCell.swift
+//  ColorTableViewCell.swift
 //  TrelloProgect
 //
-//  Created by Maxim Panamarou on 7/26/18.
+//  Created by Maxim Panamarou on 7/27/18.
 //  Copyright © 2018 Maxim Panamarou. All rights reserved.
 //
 
 import UIKit
 
-class BoardTableViewCell: UITableViewCell {
+class ColorTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var colorOfBoard: UIView!
-  @IBOutlet weak var nameOfBoard: UILabel!
-  
-  override func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

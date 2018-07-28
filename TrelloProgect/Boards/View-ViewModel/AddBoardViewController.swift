@@ -10,47 +10,58 @@ import UIKit
 
 class AddBoardViewController: UITableViewController {
   
-  private var addBoard: UIBarButtonItem?
-  @IBOutlet weak var nameTextField: UITextField!
+  var selectedCellInColor : UITableViewCell?
+  
+  @IBOutlet private weak var selectedСolorView: UIView!
+  @IBOutlet private weak var nameTextField: UITextField!
+  
+  private var nameOfSelectedColor = "blue"
+  private var addBoard: UIBarButtonItem!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-   
+   preparationFor()
   }
   
   override func viewWillAppear(_ animated: Bool) {
+   preparationFo()
+  }
+  
+  override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    tableView.deselectRow(at: indexPath, animated: false)
+  }
+  
+  private func preparationFor(){
     let createBoard = UIBarButtonItem.init(title: "Create", style: .done, target: self, action: #selector(createNewBoard(_:)))
     navigationItem.setRightBarButton(createBoard, animated: false)
     navigationItem.title = "Board"
     createBoard.isEnabled = false
     addBoard = createBoard
-    nameTextField.becomeFirstResponder()
   }
   
-  @objc func createNewBoard(_ sender: UIBarButtonItem) {
- 
-    if let nameOfBoard = nameTextField.text {
-      ServerManager.default.postBoardwithName(nameOfBoard) {[weak self] (result) in
-        guard result == nil else { return }
-        self?.navigationController?.popViewController(animated: true)
-      }
+  private func preparationFo(){
+    
+    nameTextField.becomeFirstResponder()
+    guard let cell = selectedCellInColor else {return}
+    selectedСolorView.backgroundColor = cell.contentView.backgroundColor
+    guard let text = cell.textLabel?.text else {return}
+    nameOfSelectedColor = text
+  }
+  
+  @objc private func createNewBoard(_ sender: UIBarButtonItem?) {
+    
+    guard let nameOfBoard = nameTextField.text else {return}
+    BoardViewModel().postBoardwithName(nameOfBoard, color: nameOfSelectedColor) { [weak self] (result) in
+      
     }
   }
-  
 }
 
 extension AddBoardViewController: UITextFieldDelegate {
-  
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    if let add = addBoard {
-      if add.isEnabled {
-        switch textField {
-        case  nameTextField : #selector(createNewBoard(_:))
-        default: break
-        }
-      }
-    }
-    return true
+    guard addBoard.isEnabled else {return false}
+      createNewBoard(nil)
+    return false
   }
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -58,5 +69,4 @@ extension AddBoardViewController: UITextFieldDelegate {
     addBoard?.isEnabled = !(string.isEmpty && text.count == 1)
     return true
   }
-  
 }

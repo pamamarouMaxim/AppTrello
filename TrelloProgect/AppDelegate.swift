@@ -13,11 +13,9 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
-    //TODO: setup app navigation flow
-    
+    choiceOfStartingStoryboard()
     return true
   }
 
@@ -77,5 +75,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
       }
   }
-
+  
 }
+
+
+extension AppDelegate {
+  
+  enum Autorization : String {
+    
+    case beforAutorizationViewController = "BeforeNavigationController"
+    case afterAutorizationViewController = "AfterNavigationController"
+    
+    func storyBoardForAutorization() -> String {
+      switch self {
+      case .beforAutorizationViewController: return "Main"
+      case .afterAutorizationViewController: return "Boards"
+      }
+    }
+  }
+  
+  private func choiceOfStartingStoryboard(){
+    
+    var nameOfStoryBoard = String()
+    var identifireViewController = String()
+    
+    if let _ = UserSettings.default.token,let _ = UserSettings.default.member{
+      identifireViewController = Autorization.afterAutorizationViewController.rawValue
+      nameOfStoryBoard = Autorization.afterAutorizationViewController.storyBoardForAutorization()
+    } else{
+      identifireViewController = Autorization.beforAutorizationViewController.rawValue
+      nameOfStoryBoard = Autorization.beforAutorizationViewController.storyBoardForAutorization()
+    }
+    
+    let navigationController = UIStoryboard.init(name: nameOfStoryBoard, bundle: Bundle.main).instantiateViewController(withIdentifier: identifireViewController) as? UINavigationController
+    
+    if let controller = navigationController {
+      self.window?.rootViewController = controller
+    }
+  }
+}
+
+

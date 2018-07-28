@@ -9,6 +9,9 @@
 import UIKit
 
 class BoardTableViewController: UITableViewController {
+
+
+  var boardViewModel  = BoardViewModel()
   
   lazy var refreshTableviewControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
@@ -36,21 +39,13 @@ class BoardTableViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     self.tableView.addSubview(refreshTableviewControl)
-    let addNewBoard = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAddNewBoard(_:)))
-    navigationItem.setRightBarButton(addNewBoard, animated: false)
     navigationItem.title = "BOARDS"
     getBoardFromServer()
   }
 
-  @objc func tappedAddNewBoard(_ sender: UIBarButtonItem) {
-    let addBoardViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddBoardViewController") as? AddBoardViewController
-    if let boardController = addBoardViewController {
-      self.navigationController?.show(boardController, sender: nil)
-    }
-  }
-  
+
   func getBoardFromServer() {
-    ViewModel().getAllBoardWithComplitionBlock { [weak self](result) in
+    boardViewModel.getAllBoardWithComplitionBlock { [weak self](result) in
       if let array = result as? [Board] {
         self?.arrayOfBoard = array
          self?.tableView.reloadData()
@@ -58,12 +53,7 @@ class BoardTableViewController: UITableViewController {
     }
   }
   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
+  // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -79,6 +69,7 @@ class BoardTableViewController: UITableViewController {
         if let array = arrayOfBoard {
           let board = array[indexPath.row]
           cell.nameOfBoard.text = board.name
+          //cell.colorOfBoard.backgroundColor = colorWithHexString(hex: board.hexColor)
         }
         return cell
       }
@@ -103,4 +94,46 @@ class BoardTableViewController: UITableViewController {
         } else if editingStyle == .insert {
        }
     }
+  @IBAction func goToAutorizationScreen(_ sender: UIBarButtonItem) {
+    
+    let redistranionController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BeforeNavigationController") as? UINavigationController
+    
+    if let controller = redistranionController{
+      guard let window = UIApplication.shared.windows.first else  {return}
+      UserSettings.default.token = nil
+      UserSettings.default.member = nil
+      UIView.transition(with: window, duration: 1, options: .transitionFlipFromLeft, animations: {
+        window.rootViewController = controller
+      }, completion: { completed in
+        
+      })
+    }
+  }
+}
+
+extension BoardTableViewController{
+  func colorWithHexString (hex:String) -> UIColor {
+    
+    var cString = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+    
+    if (cString.hasPrefix("#")) {
+      cString = (cString as NSString).substring(from: 1)
+    }
+    
+    if (cString.count != 6) {
+      return UIColor.gray
+    }
+    
+    let rString = (cString as NSString).substring(to: 2)
+    let gString = ((cString as NSString).substring(from: 2) as NSString).substring(to: 2)
+    let bString = ((cString as NSString).substring(from: 4) as NSString).substring(to: 2)
+    
+    var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
+    Scanner(string: rString).scanHexInt32(&r)
+    Scanner(string: gString).scanHexInt32(&g)
+    Scanner(string: bString).scanHexInt32(&b)
+    
+    
+    return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+  }
 }

@@ -7,14 +7,15 @@
 import Foundation
 import UIKit
 
-var setting: UserInputData = UserSettings.default
-
 // TODO: split view models (1 VC - 1 VM)
 class ViewModel {
+  
+  var setting: UserInputData = UserSettings.default
   
   let api: AuthorizationUser
   
   init(api: AuthorizationUser = ServerManager.default) {
+    
     self.api = api
   }
   
@@ -43,10 +44,13 @@ class ViewModel {
   func getAllBoardWithComplitionBlock(_ completion : @escaping (Any?) -> Void) {
     ServerManager.default.getAllBoardWithBlock { (response) in
       var arraOfBoard = [Board]()
-      if let arrayOfDict = response as? [Dictionary<String, String>] {
+      if let arrayOfDict = response as? [Dictionary<String, Any>] {
         for value in arrayOfDict {
-          if let name = value["name"], let id = value["id"] {
-            arraOfBoard.append(Board(id: id, name: name))
+          if let name = value["name"], let id = value["id"],let prefs = value["prefs"]  {
+            guard let color = prefs as? [String: Any] else {return}
+            guard let background = color["backgroundColor"]  else {return}
+            let hexColor = String(describing: background)
+            arraOfBoard.append(Board(id: id as! String, name: name as! String, hexColor : hexColor))
           }
         }
         completion(arraOfBoard)
@@ -70,3 +74,6 @@ class ViewModel {
   }
 
 }
+
+
+

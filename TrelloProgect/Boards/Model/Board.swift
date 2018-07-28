@@ -8,8 +8,13 @@
 
 import Foundation
 
-// TODO: use codable
-struct Board: Codable {
-  let id: String
-  let name: String
+struct Board : Codable{
+  let id    : String
+  let name  : String
+  let prefs : Prefs
 }
+
+struct Prefs : Codable{
+  let backgroundColor : String
+}
+

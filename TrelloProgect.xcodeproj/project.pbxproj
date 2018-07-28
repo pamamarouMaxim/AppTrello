@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F89522109F1ED00A70ED5 /* ApiErrors.swift */; };
 		230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230F89542109F7C600A70ED5 /* Boards.storyboard */; };
+		2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325178E210B40F5005098EF /* ColorTableViewController.swift */; };
 		2338A68A2109B00100468395 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A6892109B00100468395 /* Board.swift */; };
 		2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A68B2109BF8100468395 /* BoardTableViewCell.swift */; };
 		235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE12109220E006E5861 /* BoardTableViewController.swift */; };
@@ -19,7 +20,10 @@
 		23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23741FDC210775F4008EE152 /* TrelloProgect.xcdatamodeld */; };
 		23741FE0210775F4008EE152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23741FDF210775F4008EE152 /* Assets.xcassets */; };
 		23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FE1210775F4008EE152 /* LaunchScreen.storyboard */; };
-		239D4BD72107811200E5B0C3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D4BD62107811100E5B0C3 /* ViewModel.swift */; };
+		23C581BC210C89ED00B5A151 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581BB210C89ED00B5A151 /* BoardViewModel.swift */; };
+		23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581BF210C8CF500B5A151 /* LoginViewModel.swift */; };
+		23C581C4210C9F8000B5A151 /* ServerManager + AutorizationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */; };
+		23C581C6210CA04E00B5A151 /* ServerManager + UsingBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */; };
 		23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6DD210783B300A258FA /* EnterViewController.swift */; };
 		23E1C6E02107845A00A258FA /* trello.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E1C6DF2107845A00A258FA /* trello.png */; };
 		23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E121078B0200A258FA /* ServerManager.swift */; };
@@ -30,6 +34,7 @@
 /* Begin PBXFileReference section */
 		230F89522109F1ED00A70ED5 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
 		230F89542109F7C600A70ED5 /* Boards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Boards.storyboard; sourceTree = "<group>"; };
+		2325178E210B40F5005098EF /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewController.swift; sourceTree = "<group>"; };
 		2338A6892109B00100468395 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2338A68B2109BF8100468395 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		235F1FE12109220E006E5861 /* BoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +47,10 @@
 		23741FDF210775F4008EE152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23741FE2210775F4008EE152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23741FE4210775F4008EE152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		239D4BD62107811100E5B0C3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = /Users/maximPanamarou/Desktop/TrelloProgect/TrelloProgect/ViewModel/ViewModel.swift; sourceTree = "<absolute>"; };
+		23C581BB210C89ED00B5A151 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
+		23C581BF210C8CF500B5A151 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + AutorizationUser.swift"; sourceTree = "<group>"; };
+		23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + UsingBoards.swift"; sourceTree = "<group>"; };
 		23E1C6DD210783B300A258FA /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		23E1C6DF2107845A00A258FA /* trello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trello.png; path = Images/trello.png; sourceTree = "<group>"; };
 		23E1C6E121078B0200A258FA /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
@@ -63,44 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		235F1FD821090796006E5861 /* Model */ = {
+		235F1FD821090796006E5861 /* ShareModel */ = {
 			isa = PBXGroup;
 			children = (
-				23E1C6E121078B0200A258FA /* ServerManager.swift */,
 				23E1C6E92107990B00A258FA /* UserSettings.swift */,
-				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
-				2338A68B2109BF8100468395 /* BoardTableViewCell.swift */,
-				2338A6892109B00100468395 /* Board.swift */,
-				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
+				23C581C2210C9F6300B5A151 /* Servermanager */,
 			);
-			path = Model;
+			path = ShareModel;
 			sourceTree = "<group>";
 		};
-		235F1FD9210907B9006E5861 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				235F1FDC210907F2006E5861 /* LoginViewControllers */,
-				235F1FE12109220E006E5861 /* BoardTableViewController.swift */,
-				235F1FE321092756006E5861 /* AddBoardViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		235F1FDB210907DA006E5861 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				239D4BD62107811100E5B0C3 /* ViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		235F1FDC210907F2006E5861 /* LoginViewControllers */ = {
+		235F1FDC210907F2006E5861 /* Autorization */ = {
 			isa = PBXGroup;
 			children = (
 				23E1C6DD210783B300A258FA /* EnterViewController.swift */,
-				23741FD7210775F4008EE152 /* LoginViewController.swift */,
+				23C581BD210C8C8800B5A151 /* View-ViewModel */,
+				23C581C7210CA12B00B5A151 /* Model */,
 			);
-			path = LoginViewControllers;
+			path = Autorization;
 			sourceTree = "<group>";
 		};
 		23741FC9210775F4008EE152 = {
@@ -125,9 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				23741FD5210775F4008EE152 /* AppDelegate.swift */,
-				235F1FD9210907B9006E5861 /* ViewControllers */,
-				235F1FDB210907DA006E5861 /* ViewModel */,
-				235F1FD821090796006E5861 /* Model */,
+				235F1FDC210907F2006E5861 /* Autorization */,
+				23C581BA210C88CB00B5A151 /* Boards */,
+				235F1FD821090796006E5861 /* ShareModel */,
 				23741FD9210775F4008EE152 /* Main.storyboard */,
 				230F89542109F7C600A70ED5 /* Boards.storyboard */,
 				23741FDF210775F4008EE152 /* Assets.xcassets */,
@@ -137,6 +124,63 @@
 				23E1C6DF2107845A00A258FA /* trello.png */,
 			);
 			path = TrelloProgect;
+			sourceTree = "<group>";
+		};
+		23C581BA210C88CB00B5A151 /* Boards */ = {
+			isa = PBXGroup;
+			children = (
+				2325178E210B40F5005098EF /* ColorTableViewController.swift */,
+				23C581BE210C8C9E00B5A151 /* View-ViewModel */,
+				23C581C8210CA15400B5A151 /* Model */,
+			);
+			path = Boards;
+			sourceTree = "<group>";
+		};
+		23C581BD210C8C8800B5A151 /* View-ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				23741FD7210775F4008EE152 /* LoginViewController.swift */,
+				23C581BF210C8CF500B5A151 /* LoginViewModel.swift */,
+			);
+			path = "View-ViewModel";
+			sourceTree = "<group>";
+		};
+		23C581BE210C8C9E00B5A151 /* View-ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				235F1FE321092756006E5861 /* AddBoardViewController.swift */,
+				235F1FE12109220E006E5861 /* BoardTableViewController.swift */,
+				23C581BB210C89ED00B5A151 /* BoardViewModel.swift */,
+			);
+			path = "View-ViewModel";
+			sourceTree = "<group>";
+		};
+		23C581C2210C9F6300B5A151 /* Servermanager */ = {
+			isa = PBXGroup;
+			children = (
+				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
+				23E1C6E121078B0200A258FA /* ServerManager.swift */,
+				23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */,
+				23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */,
+			);
+			path = Servermanager;
+			sourceTree = "<group>";
+		};
+		23C581C7210CA12B00B5A151 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23C581C8210CA15400B5A151 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2338A68B2109BF8100468395 /* BoardTableViewCell.swift */,
+				2338A6892109B00100468395 /* Board.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		790E645592F84A2C021457E0 /* Frameworks */ = {
@@ -166,8 +210,6 @@
 				23741FCE210775F4008EE152 /* Sources */,
 				23741FCF210775F4008EE152 /* Frameworks */,
 				23741FD0210775F4008EE152 /* Resources */,
-				2391D57B210777A9004F8DFE /* Highlight */,
-				2391D57C21077B1F004F8DFE /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -228,34 +270,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2391D57B210777A9004F8DFE /* Highlight */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Highlight;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:\"\nSKIPDIRS=\"/Pods\"\nfind \"${SRCROOT}/\" -type f \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 \\\n| xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n| grep -v \"$SKIPDIRS\" \\\n| perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
-		};
-		2391D57C21077B1F004F8DFE /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
-		};
 		FFD55A6BED420F32AF0DA7BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,14 +296,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */,
+				2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */,
 				23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */,
 				23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */,
 				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
-				239D4BD72107811200E5B0C3 /* ViewModel.swift in Sources */,
 				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
+				23C581C6210CA04E00B5A151 /* ServerManager + UsingBoards.swift in Sources */,
 				23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */,
 				23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */,
+				23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */,
+				23C581C4210C9F8000B5A151 /* ServerManager + AutorizationUser.swift in Sources */,
 				235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */,
+				23C581BC210C89ED00B5A151 /* BoardViewModel.swift in Sources */,
 				2338A68A2109B00100468395 /* Board.swift in Sources */,
 				2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */,
 				230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */,
