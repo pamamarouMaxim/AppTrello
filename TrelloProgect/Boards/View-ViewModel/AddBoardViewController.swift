@@ -20,28 +20,27 @@ class AddBoardViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-   preparationFor()
+   preparationToShow()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-   preparationFo()
+   preparationSendCell()
   }
   
   override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
     tableView.deselectRow(at: indexPath, animated: false)
   }
   
-  private func preparationFor(){
+  private func preparationToShow(){
     let createBoard = UIBarButtonItem.init(title: "Create", style: .done, target: self, action: #selector(createNewBoard(_:)))
     navigationItem.setRightBarButton(createBoard, animated: false)
     navigationItem.title = "Board"
     createBoard.isEnabled = false
     addBoard = createBoard
+    nameTextField.becomeFirstResponder()
   }
   
-  private func preparationFo(){
-    
-    nameTextField.becomeFirstResponder()
+  private func preparationSendCell(){
     guard let cell = selectedCellInColor else {return}
     selectedСolorView.backgroundColor = cell.contentView.backgroundColor
     guard let text = cell.textLabel?.text else {return}
@@ -49,10 +48,9 @@ class AddBoardViewController: UITableViewController {
   }
   
   @objc private func createNewBoard(_ sender: UIBarButtonItem?) {
-    
     guard let nameOfBoard = nameTextField.text else {return}
     BoardViewModel().postBoardwithName(nameOfBoard, color: nameOfSelectedColor) { [weak self] (result) in
-      
+      self?.navigationController?.popViewController(animated: true)
     }
   }
 }

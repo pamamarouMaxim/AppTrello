@@ -12,6 +12,7 @@ class BoardTableViewCell: UITableViewCell {
 
   @IBOutlet weak var colorOfBoard: UIView!
   @IBOutlet weak var nameOfBoard: UILabel!
+  @IBOutlet weak var idOfBoard: UILabel!
   
   override func awakeFromNib() {
         super.awakeFromNib()

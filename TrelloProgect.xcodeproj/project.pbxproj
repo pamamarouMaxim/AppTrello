@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F89522109F1ED00A70ED5 /* ApiErrors.swift */; };
 		230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230F89542109F7C600A70ED5 /* Boards.storyboard */; };
+		231D9B1B210E663B009C2E84 /* libSwiftyJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 231D9B1C210E663B009C2E84 /* libSwiftyJSON.a */; };
+		231D9B21210F29D4009C2E84 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */; };
+		231D9B27210FE2B0009C2E84 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B26210FE2B0009C2E84 /* CardsViewModel.swift */; };
 		2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325178E210B40F5005098EF /* ColorTableViewController.swift */; };
 		2338A68A2109B00100468395 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A6892109B00100468395 /* Board.swift */; };
 		2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A68B2109BF8100468395 /* BoardTableViewCell.swift */; };
@@ -29,11 +32,22 @@
 		23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E121078B0200A258FA /* ServerManager.swift */; };
 		23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E521078BBF00A258FA /* LoginValidation.swift */; };
 		23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E92107990B00A258FA /* UserSettings.swift */; };
+		23FB5BA9210DDA3B00E14B50 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BA8210DDA3B00E14B50 /* List.swift */; };
+		23FB5BAB210DE1B300E14B50 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAA210DE1B300E14B50 /* DataSource.swift */; };
+		23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */; };
+		23FB5BAF210DFDC000E14B50 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAE210DFDC000E14B50 /* ListViewController.swift */; };
+		23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BB0210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift */; };
+		23FB5BB3210E0DDB00E14B50 /* ServerManager + CardOfList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */; };
+		23FB5BB7210E4E4700E14B50 /* ListPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BB6210E4E4700E14B50 /* ListPageViewModel.swift */; };
+		94991980C1B339C25DACAA17 /* libPods-TrelloProgect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C5941178F290078F22B563 /* libPods-TrelloProgect.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		230F89522109F1ED00A70ED5 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
 		230F89542109F7C600A70ED5 /* Boards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Boards.storyboard; sourceTree = "<group>"; };
+		231D9B1C210E663B009C2E84 /* libSwiftyJSON.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftyJSON.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		231D9B26210FE2B0009C2E84 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		2325178E210B40F5005098EF /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewController.swift; sourceTree = "<group>"; };
 		2338A6892109B00100468395 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2338A68B2109BF8100468395 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
@@ -56,6 +70,14 @@
 		23E1C6E121078B0200A258FA /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		23E1C6E521078BBF00A258FA /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
 		23E1C6E92107990B00A258FA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		23FB5BA8210DDA3B00E14B50 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		23FB5BAA210DE1B300E14B50 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageViewController.swift; sourceTree = "<group>"; };
+		23FB5BAE210DFDC000E14B50 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		23FB5BB0210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + UsingListsOfBoard.swift"; sourceTree = "<group>"; };
+		23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + CardOfList.swift"; sourceTree = "<group>"; };
+		23FB5BB6210E4E4700E14B50 /* ListPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageViewModel.swift; sourceTree = "<group>"; };
+		67C5941178F290078F22B563 /* libPods-TrelloProgect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrelloProgect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D767C68E9DA4FAC5057019 /* Pods-TrelloProgect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrelloProgect.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrelloProgect/Pods-TrelloProgect.release.xcconfig"; sourceTree = "<group>"; };
 		E07829A4905092CD1F1C0609 /* Pods-TrelloProgect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrelloProgect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrelloProgect/Pods-TrelloProgect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,19 +87,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231D9B1B210E663B009C2E84 /* libSwiftyJSON.a in Frameworks */,
+				94991980C1B339C25DACAA17 /* libPods-TrelloProgect.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		235F1FD821090796006E5861 /* ShareModel */ = {
+		231D9B1D210F0C6F009C2E84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23FB5BA8210DDA3B00E14B50 /* List.swift */,
+				231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		235F1FD821090796006E5861 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				23E1C6E92107990B00A258FA /* UserSettings.swift */,
+				23FB5BAA210DE1B300E14B50 /* DataSource.swift */,
 				23C581C2210C9F6300B5A151 /* Servermanager */,
 			);
-			path = ShareModel;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		235F1FDC210907F2006E5861 /* Autorization */ = {
@@ -114,7 +148,8 @@
 				23741FD5210775F4008EE152 /* AppDelegate.swift */,
 				235F1FDC210907F2006E5861 /* Autorization */,
 				23C581BA210C88CB00B5A151 /* Boards */,
-				235F1FD821090796006E5861 /* ShareModel */,
+				23FB5BB5210E3C6200E14B50 /* Lists */,
+				235F1FD821090796006E5861 /* Services */,
 				23741FD9210775F4008EE152 /* Main.storyboard */,
 				230F89542109F7C600A70ED5 /* Boards.storyboard */,
 				23741FDF210775F4008EE152 /* Assets.xcassets */,
@@ -162,6 +197,8 @@
 				23E1C6E121078B0200A258FA /* ServerManager.swift */,
 				23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */,
 				23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */,
+				23FB5BB0210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift */,
+				23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */,
 			);
 			path = Servermanager;
 			sourceTree = "<group>";
@@ -183,9 +220,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		23FB5BB5210E3C6200E14B50 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */,
+				23FB5BB6210E4E4700E14B50 /* ListPageViewModel.swift */,
+				23FB5BAE210DFDC000E14B50 /* ListViewController.swift */,
+				231D9B26210FE2B0009C2E84 /* CardsViewModel.swift */,
+				231D9B1D210F0C6F009C2E84 /* Model */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
 		790E645592F84A2C021457E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				231D9B1C210E663B009C2E84 /* libSwiftyJSON.a */,
+				67C5941178F290078F22B563 /* libPods-TrelloProgect.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,15 +347,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */,
+				23FB5BB3210E0DDB00E14B50 /* ServerManager + CardOfList.swift in Sources */,
 				2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */,
 				23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */,
 				23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */,
+				231D9B27210FE2B0009C2E84 /* CardsViewModel.swift in Sources */,
+				231D9B21210F29D4009C2E84 /* CardTableViewCell.swift in Sources */,
 				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
 				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
+				23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */,
+				23FB5BAB210DE1B300E14B50 /* DataSource.swift in Sources */,
 				23C581C6210CA04E00B5A151 /* ServerManager + UsingBoards.swift in Sources */,
 				23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */,
 				23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */,
+				23FB5BA9210DDA3B00E14B50 /* List.swift in Sources */,
 				23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */,
+				23FB5BB7210E4E4700E14B50 /* ListPageViewModel.swift in Sources */,
 				23C581C4210C9F8000B5A151 /* ServerManager + AutorizationUser.swift in Sources */,
 				235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */,
 				23C581BC210C89ED00B5A151 /* BoardViewModel.swift in Sources */,
@@ -312,6 +370,8 @@
 				2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */,
 				230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */,
 				23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */,
+				23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */,
+				23FB5BAF210DFDC000E14B50 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

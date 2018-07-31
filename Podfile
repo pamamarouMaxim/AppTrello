@@ -1,7 +1,7 @@
 
 platform :ios, ’10.0’
 
-target 'CBTestHomeWork' do
+target ‘TrelloProgect’ do
  
 pod 'SwiftyJSON', '~> 4.0'
 

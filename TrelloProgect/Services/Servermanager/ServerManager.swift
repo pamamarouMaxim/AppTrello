@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 enum Result<T> {
   case success(T)
@@ -38,14 +39,12 @@ class ServerManager {
   func requestWithData<T : Decodable>(_ url: String, method: HTTPMethod, parameters: [String: Any]?, completion: @escaping (Result<T>) -> Void) {
     
     Alamofire.request((url), method: method, parameters: parameters).responseData { (response) in
-    
       switch response.result{
       case .success(let data) :
         do{
           let coder = JSONDecoder()
-          let board : T = try coder.decode(T.self, from: data)
-          completion(Result.success(board))
-         
+          let boardType = try coder.decode(T.self, from: data)
+          completion(Result.success(boardType))
         } catch {
           completion(Result.failure(error))
         }
@@ -54,4 +53,9 @@ class ServerManager {
     }
   }
   
+  func requestReturnData(_ url: String, method: HTTPMethod, parameters: [String: Any]?, completion: @escaping (DataResponse<Data>) -> Void) {
+    Alamofire.request((url), method: method, parameters: parameters).responseData { (response) in
+      completion(response)
+    }
+  }
 }

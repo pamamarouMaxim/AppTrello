@@ -11,10 +11,10 @@ import Foundation
 struct Board : Codable{
   let id    : String
   let name  : String
-  let prefs : Prefs
+  let prefs : Color
 }
 
-struct Prefs : Codable{
+struct Color : Codable{
   let backgroundColor : String
 }
 

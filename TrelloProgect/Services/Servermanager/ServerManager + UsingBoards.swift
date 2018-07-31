@@ -43,13 +43,10 @@ extension ServerManager: UseOfBoards {
       let param = ["filter": "all", "fields": "id,name,prefs", "lists": "none", "memberships": "none", "key": userId, "token": token]
       let method = HTTPMethod.get
       requestWithUrl(self.rootURL + WorkWithBoardURL.getBoardURL.rawValue, method: method, parameters: param, completion: { (result) in
-        
-//        if result.isSuccess {
-//          //let decoder = JSONDecoder()
-//          completion(result.value)
-//        } else {
-//          completion(result.error)
-//        }
+        switch result{
+        case .success(let success): completion(success)
+        case .failure(let error)  : completion(error)
+        }
       })
     }
   }
@@ -60,12 +57,10 @@ extension ServerManager: UseOfBoards {
       let param = ["key": userId, "token": token]
       let method = HTTPMethod.delete
       requestWithUrl(self.rootURL + deleteBoardURL, method: method, parameters: param, completion: { (result) in
-        
-//        if result.isSuccess {
-//          completion(result.value)
-//        } else {
-//          completion(result.error)
-//        }
+        switch result{
+        case .success(let success): completion(success)
+        case .failure(let error)  : completion(error)
+        }
       })
     }
   }
