@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
-struct Board : Codable{
+struct Board {
   let id    : String
   let name  : String
-  let prefs : Color
+  let backgroundColor : UIColor
 }
 
-struct Color : Codable{
-  let backgroundColor : String
-}
+
 

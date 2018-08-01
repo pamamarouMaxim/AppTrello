@@ -13,7 +13,7 @@ class BoardViewModel {
   
   let api: UseOfBoards
   var setting: UserInputData = UserSettings.default
-  var boards : ArrayDataSource?
+  var boardsDataSource : ArrayDataSource?
   
   init(api: UseOfBoards = ServerManager.default) {
     self.api = api
@@ -21,10 +21,7 @@ class BoardViewModel {
   
   func postBoardwithName(_ name : String, color : String , completion: @escaping (Any?)  -> Void )  {
     api.postBoardwithName(name, color: color) {(result) in
-      switch result{
-      case .success(let board) : completion(board)
-      case .failure(let error) : completion(error)
-      }
+     completion(result)
     }
   }
  
@@ -38,13 +35,12 @@ class BoardViewModel {
             guard let idOfBoard   = id    as? String else {return}
             guard let presfDict   = presf as? [String : Any] else {return}
             guard let color = presfDict["backgroundColor"] else {return}
-            guard let c = color as? String else {return}
-            let colorOfBoard = Color(backgroundColor: c)
-            let board = Board(id: idOfBoard, name: nameOfBoard, prefs: colorOfBoard)
+            guard let colorOfBoard = color as? String else {return}
+            let board = Board(id: idOfBoard, name: nameOfBoard, backgroundColor: UIColor.colorWithHexString(hex: colorOfBoard))
             arraOfBoard.append(board)
           }
         }
-        self?.boards = ArrayDataSource(with: arraOfBoard)
+        self?.boardsDataSource = ArrayDataSource(with: arraOfBoard)
       }
       completion(nil)
     }

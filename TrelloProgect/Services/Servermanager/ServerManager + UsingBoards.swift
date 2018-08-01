@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 
 protocol UseOfBoards: class {
-  func postBoardwithName(_ name: String,color : String, completion: @escaping (Result<Board>) -> Void)
+  func postBoardwithName(_ name: String,color : String, completion: @escaping (Any?) -> Void)
   func getAllBoardWithBlock(_ completion: @escaping (Any?) -> Void)
   func removeBoardWithId(_ id: String, completion : @escaping (Any?) -> Void)
 }
@@ -23,7 +23,7 @@ extension ServerManager: UseOfBoards {
     case getBoardURL = "members/5b51d555ccc2276b2e23c9c9/boards"
   }
   
-  func postBoardwithName(_ name: String,color : String, completion: @escaping (Result<Board>) -> Void) {
+  func postBoardwithName(_ name: String,color : String, completion: @escaping (Any?) -> Void) {
     
     if let token = setting.token, let userId = setting.userId {
       let parametrs = ["name": name,
@@ -31,7 +31,8 @@ extension ServerManager: UseOfBoards {
                        "prefs_background": color,
                         "token": token] as [String : Any]
       let url = self.rootURL + WorkWithBoardURL.deleteOrPostBoardURl.rawValue
-      requestWithData(url, method:HTTPMethod.post,parameters: parametrs, completion: { (result : Result<Board>) in
+      
+      requestWithUrl(url, method: HTTPMethod.post, parameters: parametrs, completion: { (result) in
         completion(result)
       })
     }
@@ -53,7 +54,7 @@ extension ServerManager: UseOfBoards {
   
   func removeBoardWithId(_ id: String, completion : @escaping (Any?) -> Void) {
     if let token = setting.token, let userId = setting.userId {
-      var deleteBoardURL = WorkWithBoardURL.deleteOrPostBoardURl.rawValue + id
+      let deleteBoardURL = WorkWithBoardURL.deleteOrPostBoardURl.rawValue + id
       let param = ["key": userId, "token": token]
       let method = HTTPMethod.delete
       requestWithUrl(self.rootURL + deleteBoardURL, method: method, parameters: param, completion: { (result) in

@@ -11,12 +11,10 @@ import Foundation
 import Foundation
 import UIKit
 
-// TODO: split view models (1 VC - 1 VM)
 class LoginViewModel {
   
   let api: AuthorizationUser
   var setting: UserInputData = UserSettings.default
-  
   
   init(api: AuthorizationUser = ServerManager.default) {
     self.api = api

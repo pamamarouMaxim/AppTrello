@@ -10,7 +10,7 @@ import UIKit
 
 class CardTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var textForCard: UITextView!
+  @IBOutlet weak var listNameLabel: UILabel!
   
   override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class CardTableViewCell: UITableViewCell {
   private func makeBorder(){
     layer.borderColor = UIColor.black.cgColor
     layer.borderWidth = 1
-    layer.cornerRadius = 20
+    layer.cornerRadius = 5
   }
   
   private func makeShadow(){

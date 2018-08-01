@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +28,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BoardTableViewCell" id="dlY-TR-uKw" customClass="BoardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BoardTableViewCell" id="dlY-TR-uKw" customClass="BoardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dlY-TR-uKw" id="OQn-g2-taX" customClass="BoardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
@@ -93,98 +94,183 @@
             </objects>
             <point key="canvasLocation" x="1784.8" y="124.58770614692655"/>
         </scene>
-        <!--List Page View Controller-->
-        <scene sceneID="m1d-oe-dCc">
+        <!--List Cards View Controller-->
+        <scene sceneID="NnC-Cj-hQ4">
             <objects>
-                <pageViewController storyboardIdentifier="ListPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="NhK-VP-nFy" customClass="ListPageViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oml-ka-MRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="857"/>
-        </scene>
-        <!--List View Controller-->
-        <scene sceneID="Xf9-9s-lMF">
-            <objects>
-                <viewController storyboardIdentifier="ListViewController" id="r2E-wX-95Q" customClass="ListViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9iX-7x-Rh9">
+                <viewController storyboardIdentifier="ListCardsViewController" id="453-Ci-c7N" customClass="ListCardsViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Doq-qR-4gK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-cZ-VZ9">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopCell" textLabel="wo6-yv-t6n" style="IBUITableViewCellStyleDefault" id="Lzk-ah-Xnc">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lzk-ah-Xnc" id="Gea-4n-dTb">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="NameOfList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wo6-yv-t6n">
-                                                    <rect key="frame" x="15" y="0.0" width="305" height="43.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGm-hC-kXb">
+                                <rect key="frame" x="10" y="30" width="355" height="77"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yOt-T3-9hs">
+                                        <rect key="frame" x="5" y="45" width="345" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" identifier="CardTableViewConstraintHeight" id="k4m-Zb-g5t"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="o8x-RD-RHd" customClass="CardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="345" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o8x-RD-RHd" id="dkq-4f-ETy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CardTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="20" id="RE5-kk-1z9" customClass="CardTableViewCell" customModule="TrelloProgect" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="335" height="20"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RE5-kk-1z9" id="IGq-u3-rFm">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="19.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Yc9-2u-YJG">
-                                                    <rect key="frame" x="15" y="11" width="305" height="12"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Yc9-2u-YJG" secondAttribute="trailing" constant="15" id="BBa-hv-48Y"/>
-                                                <constraint firstItem="Yc9-2u-YJG" firstAttribute="top" secondItem="IGq-u3-rFm" secondAttribute="top" constant="11" id="g8Y-aX-K6q"/>
-                                                <constraint firstItem="Yc9-2u-YJG" firstAttribute="leading" secondItem="IGq-u3-rFm" secondAttribute="leading" constant="15" id="s7Z-yx-Hbd"/>
-                                                <constraint firstAttribute="bottom" secondItem="Yc9-2u-YJG" secondAttribute="bottom" constant="10.5" id="xAh-r5-keQ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="T5i-M3-Xxy">
+                                                            <rect key="frame" x="10" y="10" width="325" height="23.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="T5i-M3-Xxy" firstAttribute="top" secondItem="dkq-4f-ETy" secondAttribute="top" constant="10" id="7DL-pR-wNZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="T5i-M3-Xxy" secondAttribute="trailing" constant="10" id="ihn-gC-6oB"/>
+                                                        <constraint firstAttribute="bottom" secondItem="T5i-M3-Xxy" secondAttribute="bottom" constant="10" id="yZA-5h-avS"/>
+                                                        <constraint firstItem="T5i-M3-Xxy" firstAttribute="leading" secondItem="dkq-4f-ETy" secondAttribute="leading" constant="10" id="zCH-YV-6Z3"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="listNameLabel" destination="T5i-M3-Xxy" id="7Jy-uM-LHf"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="453-Ci-c7N" id="HJj-FV-l2F"/>
+                                            <outlet property="delegate" destination="453-Ci-c7N" id="MvP-xk-jKy"/>
+                                        </connections>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-lO-blE">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="45"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="h72-Sz-eLq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="30"/>
+                                                <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LI-UL-XPm">
+                                        <rect key="frame" x="0.0" y="45" width="355" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="0uu-7o-ecm"/>
+                                        </constraints>
+                                        <state key="normal" title="Add new card"/>
                                         <connections>
-                                            <outlet property="textForCard" destination="Yc9-2u-YJG" id="gyI-e7-isK"/>
+                                            <action selector="tapAddButton:" destination="453-Ci-c7N" eventType="touchUpInside" id="Vkf-8C-ber"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="r2E-wX-95Q" id="48Y-hn-Dqt"/>
-                                    <outlet property="delegate" destination="r2E-wX-95Q" id="S93-RU-EQ5"/>
-                                </connections>
-                            </tableView>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7LI-UL-XPm" secondAttribute="trailing" id="Fak-e3-vqV"/>
+                                    <constraint firstAttribute="trailing" secondItem="XiY-lO-blE" secondAttribute="trailing" id="G2T-rh-gir"/>
+                                    <constraint firstItem="XiY-lO-blE" firstAttribute="leading" secondItem="yGm-hC-kXb" secondAttribute="leading" id="KlO-U3-1I4"/>
+                                    <constraint firstItem="XiY-lO-blE" firstAttribute="top" secondItem="yGm-hC-kXb" secondAttribute="top" id="QYj-dA-tvf"/>
+                                    <constraint firstItem="7LI-UL-XPm" firstAttribute="top" secondItem="yOt-T3-9hs" secondAttribute="bottom" id="R3s-4p-7nR"/>
+                                    <constraint firstItem="7LI-UL-XPm" firstAttribute="leading" secondItem="yGm-hC-kXb" secondAttribute="leading" id="Y21-RN-lKM"/>
+                                    <constraint firstAttribute="trailing" secondItem="yOt-T3-9hs" secondAttribute="trailing" constant="5" id="Y4S-oK-X2s"/>
+                                    <constraint firstItem="yOt-T3-9hs" firstAttribute="top" secondItem="XiY-lO-blE" secondAttribute="bottom" id="fUP-Gq-SNS"/>
+                                    <constraint firstAttribute="bottom" secondItem="7LI-UL-XPm" secondAttribute="bottom" constant="-3" id="gge-W5-ymn"/>
+                                    <constraint firstItem="7LI-UL-XPm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XiY-lO-blE" secondAttribute="bottom" priority="500" id="nll-p3-wzA"/>
+                                    <constraint firstItem="yOt-T3-9hs" firstAttribute="leading" secondItem="yGm-hC-kXb" secondAttribute="leading" constant="5" id="urz-U1-iqK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.43794663557634739" green="1" blue="0.44731962762660793" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="21u-b9-6vk" firstAttribute="trailing" secondItem="XW2-cZ-VZ9" secondAttribute="trailing" constant="20" id="FhQ-Cq-hPy"/>
-                            <constraint firstItem="XW2-cZ-VZ9" firstAttribute="leading" secondItem="21u-b9-6vk" secondAttribute="leading" constant="20" id="SvK-b7-zdC"/>
-                            <constraint firstItem="21u-b9-6vk" firstAttribute="bottom" secondItem="XW2-cZ-VZ9" secondAttribute="bottom" constant="20" id="lCN-8Y-mmZ"/>
-                            <constraint firstItem="XW2-cZ-VZ9" firstAttribute="top" secondItem="21u-b9-6vk" secondAttribute="top" constant="20" id="yq7-8D-AtW"/>
+                            <constraint firstItem="yGm-hC-kXb" firstAttribute="leading" secondItem="XEd-dd-dqm" secondAttribute="leading" constant="10" id="5cs-6Z-fDz"/>
+                            <constraint firstItem="yGm-hC-kXb" firstAttribute="top" secondItem="XEd-dd-dqm" secondAttribute="top" constant="10" id="f25-57-nif"/>
+                            <constraint firstItem="XEd-dd-dqm" firstAttribute="trailing" secondItem="yGm-hC-kXb" secondAttribute="trailing" constant="10" id="lwY-OJ-SnH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="21u-b9-6vk"/>
+                        <viewLayoutGuide key="safeArea" id="XEd-dd-dqm"/>
                     </view>
                     <connections>
-                        <outlet property="cardTableView" destination="XW2-cZ-VZ9" id="ixZ-8Z-DcX"/>
+                        <outlet property="addCardButton" destination="7LI-UL-XPm" id="LJZ-uK-LYJ"/>
+                        <outlet property="baseView" destination="yGm-hC-kXb" id="xDh-rm-b8u"/>
+                        <outlet property="cardTableView" destination="yOt-T3-9hs" id="cYL-Yk-u06"/>
+                        <outlet property="nameCardLabel" destination="XiY-lO-blE" id="Rew-MR-IBM"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OCv-Ya-sWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7DF-K8-ZtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2600.8000000000002" y="856.82158920539734"/>
+            <point key="canvasLocation" x="1785" y="1605"/>
+        </scene>
+        <!--List Page View Controller-->
+        <scene sceneID="MQS-Am-sBt">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2cI-zT-w0y" customClass="ListPageViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bC9-lD-6hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="865"/>
+        </scene>
+        <!--Add New List View Controller-->
+        <scene sceneID="Pg2-aT-wIN">
+            <objects>
+                <viewController storyboardIdentifier="AddNewListViewController" id="m5B-7k-gbj" customClass="AddNewListViewController" customModule="TrelloProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9iM-TM-JFA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXc-IG-r7w">
+                                <rect key="frame" x="47" y="30" width="257" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create new list with name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7U-Ne-huH">
+                                        <rect key="frame" x="13" y="10" width="236" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="NHo-8a-YwJ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="m5B-7k-gbj" id="wce-a7-yUF"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="S7U-Ne-huH" firstAttribute="centerY" secondItem="TXc-IG-r7w" secondAttribute="centerY" id="Odz-ky-g8L"/>
+                                    <constraint firstItem="S7U-Ne-huH" firstAttribute="centerX" secondItem="TXc-IG-r7w" secondAttribute="centerX" constant="2.5" id="Ozc-9z-U1j"/>
+                                    <constraint firstItem="S7U-Ne-huH" firstAttribute="width" secondItem="TXc-IG-r7w" secondAttribute="width" multiplier="0.9" constant="4.6999999999999886" id="YVU-1A-110"/>
+                                    <constraint firstAttribute="height" constant="50" id="yIV-6e-rLN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.69135454350844694" blue="0.91970960552722159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TXc-IG-r7w" firstAttribute="top" secondItem="lLM-MS-Q4s" secondAttribute="top" constant="10" id="BgW-zD-fNc"/>
+                            <constraint firstItem="TXc-IG-r7w" firstAttribute="width" secondItem="9iM-TM-JFA" secondAttribute="width" multiplier="0.7" constant="-5.5" id="bGK-B8-VVc"/>
+                            <constraint firstItem="TXc-IG-r7w" firstAttribute="centerX" secondItem="lLM-MS-Q4s" secondAttribute="centerX" constant="-12" id="gOL-Uk-jY4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lLM-MS-Q4s"/>
+                    </view>
+                    <connections>
+                        <outlet property="addNewListTextField" destination="S7U-Ne-huH" id="n3c-rh-qlI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nm9-7J-lVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="2332.9835082458771"/>
         </scene>
         <!--Add Board View Controller-->
         <scene sceneID="A0W-UQ-xFl">

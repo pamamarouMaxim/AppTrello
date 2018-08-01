@@ -58,4 +58,18 @@ class ServerManager {
       completion(response)
     }
   }
+  
+//  func perform(_ request: DataRequest, decoder :((JSON) -> (JSON?, String?))? ,completion : @escaping (JSON?,String?) -> Void) {
+//    //RequestErrors
+//    request.responseJSON { responce in
+//      switch responce.result {
+//      case .success(let data) where decoder != nil : let answer = decoder!(JSON(data))
+//        completion(answer.0,answer.1)
+//      case .success(let data): completion(JSON(data), nil)
+//      case .failure(_): completion(nil,RequestErrors.unrecognizedError)
+//      }
+//    }
+//  }
+  
+  
 }

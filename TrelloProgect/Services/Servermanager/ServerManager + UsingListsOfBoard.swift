@@ -11,7 +11,7 @@ import Alamofire
 
 protocol UsingListsOfBoard: class {
   func getListsForBoard(_ idOfBoard: String, completion: @escaping (DataResponse<Data>?) -> Void)
-  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : (Error?) -> Void)
+  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : @escaping (Result<Any>) -> Void)
 }
 
 extension ServerManager : UsingListsOfBoard{
@@ -25,19 +25,20 @@ extension ServerManager : UsingListsOfBoard{
     guard let token = setting.token,let userId = setting.userId else {return}
     let url = ServerManager.default.rootURL + URLForList.getAllList.rawValue + idOfBoard + "/lists"
     let method = HTTPMethod.get
-    let parametrs = ["fields" : "name,id,idBoard","key" : userId, "token" : token] as [String:Any]
+    let parametrs = ["fields" : "name,id","key" : userId, "token" : token] as [String:Any]
     requestReturnData(url, method: method, parameters: parametrs) { (response) in
       completion(response)
     }
   }
   
-  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : (Error?) -> Void){
+  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : @escaping (Result<Any>) -> Void){
     guard let token = setting.token else {return}
     guard let userId = setting.userId else {return}
     let url = ServerManager.default.rootURL + URLForList.newList.rawValue
-    let method = HTTPMethod.get
+    let method = HTTPMethod.post
     let parametrs = ["name": nameList,"idBoard" : idBoard ,"key" : userId, "token" : token] as [String:Any]
     requestWithUrl(url, method: method, parameters: parametrs) { (result) in
+      completion(result)
     }
   }  
 }

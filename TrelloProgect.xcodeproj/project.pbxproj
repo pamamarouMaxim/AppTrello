@@ -9,9 +9,15 @@
 /* Begin PBXBuildFile section */
 		230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F89522109F1ED00A70ED5 /* ApiErrors.swift */; };
 		230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230F89542109F7C600A70ED5 /* Boards.storyboard */; };
+		2313C0A12111C4320031A53C /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313C0A02111C4320031A53C /* AddNewListViewController.swift */; };
+		2313C0A52112371D0031A53C /* AddNewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313C0A42112371D0031A53C /* AddNewListViewModel.swift */; };
+		2313C0A721125BF70031A53C /* Rabish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313C0A621125BF70031A53C /* Rabish.swift */; };
+		2313C0A9211267C10031A53C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313C0A8211267C10031A53C /* Notifications.swift */; };
 		231D9B1B210E663B009C2E84 /* libSwiftyJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 231D9B1C210E663B009C2E84 /* libSwiftyJSON.a */; };
 		231D9B21210F29D4009C2E84 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */; };
-		231D9B27210FE2B0009C2E84 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B26210FE2B0009C2E84 /* CardsViewModel.swift */; };
+		231D9B27210FE2B0009C2E84 /* ListCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B26210FE2B0009C2E84 /* ListCardsViewModel.swift */; };
+		231D9B2A2110F839009C2E84 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B292110F839009C2E84 /* ColorExtension.swift */; };
+		231D9B2C2110F90F009C2E84 /* AlertExtansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D9B2B2110F90F009C2E84 /* AlertExtansion.swift */; };
 		2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325178E210B40F5005098EF /* ColorTableViewController.swift */; };
 		2338A68A2109B00100468395 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A6892109B00100468395 /* Board.swift */; };
 		2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A68B2109BF8100468395 /* BoardTableViewCell.swift */; };
@@ -35,7 +41,7 @@
 		23FB5BA9210DDA3B00E14B50 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BA8210DDA3B00E14B50 /* List.swift */; };
 		23FB5BAB210DE1B300E14B50 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAA210DE1B300E14B50 /* DataSource.swift */; };
 		23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */; };
-		23FB5BAF210DFDC000E14B50 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAE210DFDC000E14B50 /* ListViewController.swift */; };
+		23FB5BAF210DFDC000E14B50 /* ListCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAE210DFDC000E14B50 /* ListCardsViewController.swift */; };
 		23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BB0210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift */; };
 		23FB5BB3210E0DDB00E14B50 /* ServerManager + CardOfList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */; };
 		23FB5BB7210E4E4700E14B50 /* ListPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BB6210E4E4700E14B50 /* ListPageViewModel.swift */; };
@@ -45,9 +51,15 @@
 /* Begin PBXFileReference section */
 		230F89522109F1ED00A70ED5 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
 		230F89542109F7C600A70ED5 /* Boards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Boards.storyboard; sourceTree = "<group>"; };
+		2313C0A02111C4320031A53C /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
+		2313C0A42112371D0031A53C /* AddNewListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewModel.swift; sourceTree = "<group>"; };
+		2313C0A621125BF70031A53C /* Rabish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rabish.swift; sourceTree = "<group>"; };
+		2313C0A8211267C10031A53C /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		231D9B1C210E663B009C2E84 /* libSwiftyJSON.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSwiftyJSON.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
-		231D9B26210FE2B0009C2E84 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		231D9B26210FE2B0009C2E84 /* ListCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardsViewModel.swift; sourceTree = "<group>"; };
+		231D9B292110F839009C2E84 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		231D9B2B2110F90F009C2E84 /* AlertExtansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtansion.swift; sourceTree = "<group>"; };
 		2325178E210B40F5005098EF /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewController.swift; sourceTree = "<group>"; };
 		2338A6892109B00100468395 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2338A68B2109BF8100468395 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
@@ -73,7 +85,7 @@
 		23FB5BA8210DDA3B00E14B50 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		23FB5BAA210DE1B300E14B50 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageViewController.swift; sourceTree = "<group>"; };
-		23FB5BAE210DFDC000E14B50 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		23FB5BAE210DFDC000E14B50 /* ListCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardsViewController.swift; sourceTree = "<group>"; };
 		23FB5BB0210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + UsingListsOfBoard.swift"; sourceTree = "<group>"; };
 		23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + CardOfList.swift"; sourceTree = "<group>"; };
 		23FB5BB6210E4E4700E14B50 /* ListPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +116,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		231D9B282110F81A009C2E84 /* Extantionals */ = {
+			isa = PBXGroup;
+			children = (
+				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
+				231D9B292110F839009C2E84 /* ColorExtension.swift */,
+				231D9B2B2110F90F009C2E84 /* AlertExtansion.swift */,
+				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
+				2313C0A8211267C10031A53C /* Notifications.swift */,
+			);
+			path = Extantionals;
+			sourceTree = "<group>";
+		};
 		235F1FD821090796006E5861 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +143,6 @@
 			children = (
 				23E1C6DD210783B300A258FA /* EnterViewController.swift */,
 				23C581BD210C8C8800B5A151 /* View-ViewModel */,
-				23C581C7210CA12B00B5A151 /* Model */,
 			);
 			path = Autorization;
 			sourceTree = "<group>";
@@ -146,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				23741FD5210775F4008EE152 /* AppDelegate.swift */,
+				2313C0A621125BF70031A53C /* Rabish.swift */,
+				231D9B282110F81A009C2E84 /* Extantionals */,
 				235F1FDC210907F2006E5861 /* Autorization */,
 				23C581BA210C88CB00B5A151 /* Boards */,
 				23FB5BB5210E3C6200E14B50 /* Lists */,
@@ -193,7 +218,6 @@
 		23C581C2210C9F6300B5A151 /* Servermanager */ = {
 			isa = PBXGroup;
 			children = (
-				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
 				23E1C6E121078B0200A258FA /* ServerManager.swift */,
 				23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */,
 				23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */,
@@ -201,14 +225,6 @@
 				23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */,
 			);
 			path = Servermanager;
-			sourceTree = "<group>";
-		};
-		23C581C7210CA12B00B5A151 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		23C581C8210CA15400B5A151 /* Model */ = {
@@ -225,8 +241,10 @@
 			children = (
 				23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */,
 				23FB5BB6210E4E4700E14B50 /* ListPageViewModel.swift */,
-				23FB5BAE210DFDC000E14B50 /* ListViewController.swift */,
-				231D9B26210FE2B0009C2E84 /* CardsViewModel.swift */,
+				23FB5BAE210DFDC000E14B50 /* ListCardsViewController.swift */,
+				231D9B26210FE2B0009C2E84 /* ListCardsViewModel.swift */,
+				2313C0A02111C4320031A53C /* AddNewListViewController.swift */,
+				2313C0A42112371D0031A53C /* AddNewListViewModel.swift */,
 				231D9B1D210F0C6F009C2E84 /* Model */,
 			);
 			path = Lists;
@@ -351,10 +369,16 @@
 				2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */,
 				23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */,
 				23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */,
-				231D9B27210FE2B0009C2E84 /* CardsViewModel.swift in Sources */,
+				2313C0A9211267C10031A53C /* Notifications.swift in Sources */,
+				231D9B27210FE2B0009C2E84 /* ListCardsViewModel.swift in Sources */,
 				231D9B21210F29D4009C2E84 /* CardTableViewCell.swift in Sources */,
+				2313C0A52112371D0031A53C /* AddNewListViewModel.swift in Sources */,
 				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
 				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
+				2313C0A12111C4320031A53C /* AddNewListViewController.swift in Sources */,
+				231D9B2C2110F90F009C2E84 /* AlertExtansion.swift in Sources */,
+				2313C0A721125BF70031A53C /* Rabish.swift in Sources */,
+				231D9B2A2110F839009C2E84 /* ColorExtension.swift in Sources */,
 				23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */,
 				23FB5BAB210DE1B300E14B50 /* DataSource.swift in Sources */,
 				23C581C6210CA04E00B5A151 /* ServerManager + UsingBoards.swift in Sources */,
@@ -371,7 +395,7 @@
 				230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */,
 				23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */,
 				23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */,
-				23FB5BAF210DFDC000E14B50 /* ListViewController.swift in Sources */,
+				23FB5BAF210DFDC000E14B50 /* ListCardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

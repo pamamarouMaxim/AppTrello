@@ -8,21 +8,14 @@
 
 import Foundation
 
-struct ListOfBoard : Codable{
+struct BoardList : Codable{
   let id : String
   let name : String
 }
 
 ////////////////////////////////
 
-struct List : Codable{
-  var cards : [Cards]
-  let id : String
-  let idBoard : String
-  let name : String
-}
-
-struct Cards : Codable{
+struct Card : Codable{
   let dueComplete: Bool
   let id : String
   let name : String

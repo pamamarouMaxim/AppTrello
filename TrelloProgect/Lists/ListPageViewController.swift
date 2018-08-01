@@ -8,107 +8,131 @@
 
 import UIKit
 
-class ListPageViewController: UIPageViewController {
+class ListPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
   
   var pageControl = UIPageControl()
-  var idOfboard : String?
-  var colorOfBoard : UIColor?
-  var listViewModel = ListViewModel()
-  
+  var listPageViewModel : ListPageViewModel?
   var controllers : [UIViewController]?
- 
+  var controller : UIViewController!
   
-  lazy var orderedViewControllers: [UIViewController] = {
-    
-    var controllers =  [UIViewController]()
-    if let countOfControllers = listViewModel.lists?.numberOfSections(){
-      for i in 0...countOfControllers + 1{
-        guard let  viewController = newVc(viewController: "ListViewController") as? ListViewController
-          else {return [UIViewController()]}
-        viewController.colorOfBoard  = colorOfBoard
-        let list = listViewModel.lists?.item(at: (IndexPath(row: i, section: 0)))
-        if let listOfBoard = list as? ListOfBoard{
-          viewController.listOfBoard  = listOfBoard
-        }
-        controllers.append(newVc(viewController: "ListViewController"))
-      }
-      return controllers
-    }
-    return [self.newVc(viewController: "ListViewController")]
-  }()
+  // MARK: UIPageViewControllerDataSource
   
   override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
     super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
   }
   
-  convenience init(idOfboard : String, colorOfBoard : UIColor){
+  convenience init(listPageViewModel : ListPageViewModel ){
     self.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    self.idOfboard = idOfboard
-    self.colorOfBoard = colorOfBoard
+    self.listPageViewModel = listPageViewModel
+    NotificationCenter.default.addObserver(self, selector: #selector(ListPageViewController.addedNewList(notification:)), name: .AddedNewListOnBoard, object: nil)
   }
   
   required init?(coder: NSCoder) {
-    super.init(coder: coder)
+    fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.listViewModel.getListFromBoadr(idOfboard!) { (result) in
-      
-    }
     dataSource = self
     delegate = self
+    loadLists()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    guard let firstViewController = orderedViewControllers.first else {return}
-    setViewControllers([firstViewController],direction: .forward,animated: true,completion: nil)
+  @objc func addedNewList(notification: Notification){
+    
+    guard let listViewController = notification.object as? ListCardsViewController else {return}
+    var control =  controllers
+    control?.insert(listViewController, at: (controllers?.count)! - 1)
+    controllers = control
+    let first = controllers?.first!
+    setViewControllers([listViewController], direction: .forward, animated: true)
     configurePageControl()
   }
   
+  
   func configurePageControl() {
-    // The total number of pages that are available is based on how many available colors we have.
+    pageControl.removeFromSuperview()
     pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
-    self.pageControl.numberOfPages = orderedViewControllers.count
-    self.pageControl.currentPage = 0
-    self.pageControl.tintColor = UIColor.black
-    self.pageControl.pageIndicatorTintColor = UIColor.white
-    self.pageControl.currentPageIndicatorTintColor = UIColor.black
-    self.view.addSubview(pageControl)
+    if let count =  controllers?.count{
+      self.pageControl.numberOfPages = count
+      //pageControl.currentPage = 0
+      pageControl.tintColor = UIColor.black
+      pageControl.pageIndicatorTintColor = UIColor.white
+      pageControl.currentPageIndicatorTintColor = UIColor.black
+      view.addSubview(pageControl)
+    }
   }
   
-  func newVc(viewController: String) -> UIViewController {
-    return UIStoryboard(name: "Boards", bundle: nil).instantiateViewController(withIdentifier: viewController)
+  // MARK: Delegate methords
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+      
+      let pageContentViewController = pageViewController.viewControllers![0]
+      self.pageControl.currentPage = (controllers?.index(of: pageContentViewController)!)!
+      
+    }
+  
+  // MARK: Data source functions.
+  
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+      guard let viewControllers  = controllers else {return nil}
+      guard let viewControllerIndex = viewControllers.index(of: viewController) else {return nil}
+      if viewControllerIndex > 0{
+        return viewControllers[viewControllerIndex - 1]
+      }
+      return nil
   }
-}
 
-extension ListPageViewController  : UIPageViewControllerDataSource{
-  
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-    guard let viewController = viewController as? ListViewController else {return nil}
-    guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {return nil}
-    if viewControllerIndex ==  orderedViewControllers.count - 1{
+    guard let viewControllers  = controllers else {return nil}
+    guard let viewControllerIndex = viewControllers.index(of: viewController) else {return nil}
+    if viewControllerIndex == viewControllers.count - 1{
       return nil
     }
-    return orderedViewControllers[viewControllerIndex + 1]
+    return viewControllers[viewControllerIndex + 1]
+  }
+
+  private func loadLists(){
+    guard let listPageViewModel = listPageViewModel else {return}
+    listPageViewModel.getListFromBoadr(){ [weak self](result) in
+      var controllers = [UIViewController]()
+      let  firstEndViewController = UIViewController()
+      firstEndViewController.view.backgroundColor = listPageViewModel.rootBoard.backgroundColor
+     // controllers.append(firstEndViewController)
+      let count : Int = (self?.listPageViewModel?.listsDataSource?.numberOfItems(in: 0))!
+      for numberOfList in 0..<count{
+        let indexPath = IndexPath(row: numberOfList, section: 0)
+        guard let controller = self?.listViewController(indexPath: indexPath) else {return}
+        controllers.append(controller)
+      }
+      guard let addNewListController = self?.addNewVistViewController() else {return}
+      controllers.append(addNewListController)
+      //controllers.append(firstEndViewController)
+      self?.controllers = controllers
+      let first = self?.controllers?.first!
+      self?.setViewControllers([first!], direction: .forward, animated: true)
+      self?.configurePageControl()
+    }
   }
   
-  func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-    guard let viewController = viewController as? ListViewController else {return nil}
-    guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {return nil}
-    if viewControllerIndex > 0{
-      return orderedViewControllers[viewControllerIndex - 1]
-    }
-    return nil
+  private func addNewVistViewController() -> UIViewController {
+    
+    let controller = UIStoryboard.init(name: "Boards", bundle: Bundle.main).instantiateViewController(withIdentifier: "AddNewListViewController") as? AddNewListViewController
+    guard  let addNewVistViewController = controller else {return UIViewController()}
+    guard let listPageViewModel = listPageViewModel else {return UIViewController()}
+    addNewVistViewController.addListViewModel = AddListViewModel(rootBoard: listPageViewModel.rootBoard)
+    addNewVistViewController.view.backgroundColor = listPageViewModel.rootBoard.backgroundColor
+    return  addNewVistViewController
+  }
+  
+  private func listViewController(indexPath : IndexPath) -> UIViewController {
+    
+    let controller = UIStoryboard(name: "Boards", bundle: Bundle.main).instantiateViewController(withIdentifier: "ListCardsViewController") as? ListCardsViewController
+    guard let listPageViewModel = listPageViewModel else {return UIViewController()}
+    guard let listOfBoard = listPageViewModel.listsDataSource?.item(at: indexPath) as? BoardList else {return UIViewController()}
+    guard  let listCardsViewController = controller else {return UIViewController()}
+    listCardsViewController.listCardsViewModel = ListCardsViewModel(bordList: listOfBoard)
+    listCardsViewController.view.backgroundColor = listPageViewModel.rootBoard.backgroundColor
+    return  listCardsViewController
   }
 }
 
-extension ListPageViewController : UIPageViewControllerDelegate {
-  
-  func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    let pageContentViewController = pageViewController.viewControllers![0]
-    self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
-  }
-}

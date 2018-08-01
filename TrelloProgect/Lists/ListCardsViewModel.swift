@@ -10,25 +10,26 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class CardViewModel {
+class ListCardsViewModel {
   
-  let api: CardOfList
-   var cards : ArrayDataSource? //dataSource
+  let api: CardOfList =  ServerManager.default
+  var bordList : BoardList!
+  var cardsDataSource : ArrayDataSource? 
   
-  init(api: CardOfList = ServerManager.default) {
-    self.api = api
+   init(bordList : BoardList) {
+    self.bordList = bordList
   }
   
-  func getCardsFromListWithId(_ id:String, comletion : @escaping (Error?) -> Void) {
-    api.getCardsForListId(id) { [weak self](result) in
+  func getCardsFromListWithId(comletion : @escaping (Error?) -> Void) {
+    api.getCardsForListId(bordList.id) { [weak self](result) in
       guard let arraOfCards = JSON(result?.data as Any).array else {return}
-      var  dueCompleteFalse = [Cards]()
-      var  dueCompleteTrue =  [Cards]()
+      var  dueCompleteFalse = [Card]()
+      var  dueCompleteTrue =  [Card]()
       for card in arraOfCards{
         guard let cardId = card["id"].string , let cardName = card["name"].string else {return}
         guard let badges = card["badges"].dictionaryObject else {return}
         guard let dueComplete =  badges["dueComplete"] as? Bool  else {return}
-        let cardOfList = Cards(dueComplete: dueComplete, id: cardId, name: cardName)
+        let cardOfList = Card(dueComplete: dueComplete, id: cardId, name: cardName)
         if dueComplete{
           dueCompleteTrue.append(cardOfList)
         } else {
@@ -36,16 +37,15 @@ class CardViewModel {
         }
       }
       let cards = ArrayDataSource(with: [dueCompleteFalse,dueCompleteTrue])
-      self?.cards = cards
+      
+      self?.cardsDataSource = cards
       comletion(nil)
     }
   }
   
-  func  postNewCardWithName(_ name : String, completion : (Error?)-> Void) {
-    api.postNewCardForListId("", nameOfCard: name) { (result) in
-      
+  func  postNewCardWithName(_ name : String, completion : @escaping (Error?)-> Void) {
+    api.postNewCardForListId(bordList.id, nameOfCard: name) { (result) in
+      completion(nil)
     }
   }
-  
-  
 }

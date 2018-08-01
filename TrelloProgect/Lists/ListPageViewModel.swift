@@ -10,31 +10,29 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class ListViewModel {
+class ListPageViewModel {
   
-  let api: UsingListsOfBoard
-  var lists : ArrayDataSource?
+  let api: UsingListsOfBoard = ServerManager.default
+  var rootBoard : Board!
+  var listsDataSource : ArrayDataSource?
+  var controllers : [UIViewController]?
   
-  init(api: UsingListsOfBoard = ServerManager.default) {
-    self.api = api
+  init(rootBoard : Board) {
+    self.rootBoard = rootBoard
   }
   
-  func getListFromBoadr(_ idOfBoard: String,completion : @escaping (Error?) -> Void)  {
-    api.getListsForBoard(idOfBoard) { [weak self](response) in
-      var listsOfBoard = [ListOfBoard]()
-      guard let arraOfList = JSON(response?.data).array else {return}
+  func getListFromBoadr(completion : @escaping (Error?) -> Void)  {
+    api.getListsForBoard(rootBoard.id) { [weak self](response) in
+      var listsOfBoard = [BoardList]()
+      guard let arraOfList = JSON(response?.result.value).array else {return}
       for list in arraOfList{
         guard let listId = list["id"].string , let nameList = list["name"].string else {return}
-        let list = ListOfBoard(id: listId, name: nameList)
+        let list = BoardList(id: listId, name: nameList)
         listsOfBoard.append(list)
       }
-      self?.lists = ArrayDataSource(with: listsOfBoard)
+      self?.listsDataSource = ArrayDataSource(with: listsOfBoard)
       completion(nil)
     }
-  }
-  
-  func  postNewCardWithName(_ name : String, completion : (Error?)-> Void) {
-    
   }
   
 }

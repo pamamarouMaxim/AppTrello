@@ -31,8 +31,9 @@ class LoginViewController: UIViewController {
       self.activityIndicatorWithAction(.show)
       viewModel.authorizeUserWithEmail(mail, password: password) { [weak self](error) in
         if let error = error {
-           self?.activityIndicatorWithAction(.remove)
-          self?.showAlertWithError(error)
+          self?.activityIndicatorWithAction(.remove)
+          let alert = UIAlertController.alertWithError(error)
+          self?.present(alert, animated: true) {}
         } else {
           let navigationController = UIStoryboard.init(name: "Boards", bundle: Bundle.main).instantiateViewController(withIdentifier: "AfterNavigationController") as? UINavigationController
           guard let boardsNavigation = navigationController else {return}
@@ -78,23 +79,7 @@ extension LoginViewController {
     case show
     case remove
   }
-  
-  private func showAlertWithError(_ error: Error?) {
     
-    var message = String()
-
-    if let tittle = error as? Error{
-      message = tittle.localizedDescription
-    }
-    if let apiError = error as? ApiErrors{
-      message = apiError.localizedDescription
-    }
-    let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
-    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
-    }))
-    self.present(alert, animated: true) {}
-  }
-  
   private func activityIndicatorWithAction(_ action: ActivityIndicator) {
     switch action {
     case .remove: activityIndicatorView?.removeFromSuperview()

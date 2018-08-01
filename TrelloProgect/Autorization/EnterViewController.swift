@@ -16,9 +16,13 @@ class CBEnterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationController?.isNavigationBarHidden = true
-    self.enterButton.layer.cornerRadius = 5
-    self.enterButton.layer.borderWidth = 1
-    self.enterButton.layer.borderColor = UIColor.white.cgColor
+   controllerPreparation()
+  }
+  
+  private func controllerPreparation(){
+    navigationController?.isNavigationBarHidden = true
+    enterButton.layer.cornerRadius = 5
+    enterButton.layer.borderWidth = 1
+    enterButton.layer.borderColor = UIColor.white.cgColor
   }
 }
