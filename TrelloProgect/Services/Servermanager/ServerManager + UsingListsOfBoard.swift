@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 protocol UsingListsOfBoard: class {
-  func getListsForBoard(_ idOfBoard: String, completion: @escaping (DataResponse<Data>?) -> Void)
-  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : @escaping (Result<Any>) -> Void)
+  func getListsForBoard(_ idOfBoard: String, completion: @escaping (Result<[BoardList]>) -> Void)
+  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : @escaping (Result<BoardList>) -> Void)
 }
 
 extension ServerManager : UsingListsOfBoard{
@@ -21,23 +21,23 @@ extension ServerManager : UsingListsOfBoard{
     case newList    = "lists"
   }
 
-  func getListsForBoard(_ idOfBoard: String, completion: @escaping (DataResponse<Data>?) -> Void){
+  func getListsForBoard(_ idOfBoard: String, completion: @escaping (Result<[BoardList]>) -> Void){
     guard let token = setting.token,let userId = setting.userId else {return}
     let url = ServerManager.default.rootURL + URLForList.getAllList.rawValue + idOfBoard + "/lists"
     let method = HTTPMethod.get
     let parametrs = ["fields" : "name,id","key" : userId, "token" : token] as [String:Any]
-    requestReturnData(url, method: method, parameters: parametrs) { (response) in
-      completion(response)
+    requestWithData(url, method: method, parameters: parametrs) { (result : Result<[BoardList]>) in
+      completion(result)
     }
   }
   
-  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : @escaping (Result<Any>) -> Void){
+  func makeNewListInBoard(_ idBoard : String,nameList : String, completion : @escaping (Result<BoardList>) -> Void){
     guard let token = setting.token else {return}
     guard let userId = setting.userId else {return}
     let url = ServerManager.default.rootURL + URLForList.newList.rawValue
     let method = HTTPMethod.post
     let parametrs = ["name": nameList,"idBoard" : idBoard ,"key" : userId, "token" : token] as [String:Any]
-    requestWithUrl(url, method: method, parameters: parametrs) { (result) in
+    requestWithData(url, method: method, parameters: parametrs) { (result : Result<BoardList>) in
       completion(result)
     }
   }  

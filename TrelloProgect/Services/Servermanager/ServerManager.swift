@@ -37,14 +37,13 @@ class ServerManager {
   }
   
   func requestWithData<T : Decodable>(_ url: String, method: HTTPMethod, parameters: [String: Any]?, completion: @escaping (Result<T>) -> Void) {
-    
     Alamofire.request((url), method: method, parameters: parameters).responseData { (response) in
       switch response.result{
       case .success(let data) :
         do{
           let coder = JSONDecoder()
-          let boardType = try coder.decode(T.self, from: data)
-          completion(Result.success(boardType))
+          let result = try coder.decode(T.self, from: data)
+          completion(Result.success(result))
         } catch {
           completion(Result.failure(error))
         }
@@ -52,24 +51,4 @@ class ServerManager {
       }
     }
   }
-  
-  func requestReturnData(_ url: String, method: HTTPMethod, parameters: [String: Any]?, completion: @escaping (DataResponse<Data>) -> Void) {
-    Alamofire.request((url), method: method, parameters: parameters).responseData { (response) in
-      completion(response)
-    }
-  }
-  
-//  func perform(_ request: DataRequest, decoder :((JSON) -> (JSON?, String?))? ,completion : @escaping (JSON?,String?) -> Void) {
-//    //RequestErrors
-//    request.responseJSON { responce in
-//      switch responce.result {
-//      case .success(let data) where decoder != nil : let answer = decoder!(JSON(data))
-//        completion(answer.0,answer.1)
-//      case .success(let data): completion(JSON(data), nil)
-//      case .failure(_): completion(nil,RequestErrors.unrecognizedError)
-//      }
-//    }
-//  }
-  
-  
 }

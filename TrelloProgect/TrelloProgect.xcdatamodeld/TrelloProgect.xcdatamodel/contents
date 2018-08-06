@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BoardEntity" representedClassName="BoardEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundColor" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListEnity" inverseName="parentBoard" inverseEntity="ListEnity" syncable="YES"/>
+    </entity>
+    <entity name="CardEntity" representedClassName="CardEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="attachments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dueComplete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="labels" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="parentList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListEnity" inverseName="cardsRelationship" inverseEntity="ListEnity" syncable="YES"/>
+    </entity>
+    <entity name="ListEnity" representedClassName="ListEnity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="cardsRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardEntity" inverseName="parentList" inverseEntity="CardEntity" syncable="YES"/>
+        <relationship name="parentBoard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BoardEntity" inverseName="lists" inverseEntity="BoardEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BoardEntity" positionX="-10548" positionY="-1696" width="126" height="103"/>
+        <element name="ListEnity" positionX="-10341" positionY="-1696" width="128" height="103"/>
+        <element name="CardEntity" positionX="-10118" positionY="-1666" width="128" height="28"/>
+    </elements>
 </model>

@@ -21,6 +21,15 @@
 		2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2325178E210B40F5005098EF /* ColorTableViewController.swift */; };
 		2338A68A2109B00100468395 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A6892109B00100468395 /* Board.swift */; };
 		2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338A68B2109BF8100468395 /* BoardTableViewCell.swift */; };
+		2339A9142112F79E008D8609 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2339A9132112F79E008D8609 /* Card.swift */; };
+		2339A91C2112FC4B008D8609 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2339A91B2112FC4B008D8609 /* CardViewModel.swift */; };
+		2339A92221130F62008D8609 /* Activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 2339A91D21130F60008D8609 /* Activity.png */; };
+		2339A92321130F62008D8609 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 2339A91E21130F61008D8609 /* user.png */; };
+		2339A92421130F62008D8609 /* Mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2339A91F21130F61008D8609 /* Mark.png */; };
+		2339A92521130F62008D8609 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 2339A92021130F61008D8609 /* clock.png */; };
+		2339A92621130F62008D8609 /* Chek.png in Resources */ = {isa = PBXBuildFile; fileRef = 2339A92121130F61008D8609 /* Chek.png */; };
+		2339A92921130FF2008D8609 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 2339A92821130FF1008D8609 /* setting.png */; };
+		2339A92D21132697008D8609 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2339A92C21132697008D8609 /* List.storyboard */; };
 		235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE12109220E006E5861 /* BoardTableViewController.swift */; };
 		235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE321092756006E5861 /* AddBoardViewController.swift */; };
 		23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23741FD5210775F4008EE152 /* AppDelegate.swift */; };
@@ -29,6 +38,14 @@
 		23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23741FDC210775F4008EE152 /* TrelloProgect.xcdatamodeld */; };
 		23741FE0210775F4008EE152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23741FDF210775F4008EE152 /* Assets.xcassets */; };
 		23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FE1210775F4008EE152 /* LaunchScreen.storyboard */; };
+		2389550D2117678D00BFA198 /* BoardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389550C2117678D00BFA198 /* BoardTableViewModel.swift */; };
+		23A039502116E169002D7FD6 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A0394F2116E169002D7FD6 /* CardTableViewController.swift */; };
+		23A0395221170D3A002D7FD6 /* ServerManager + DetailCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A0395121170D3A002D7FD6 /* ServerManager + DetailCards.swift */; };
+		23A039542117263F002D7FD6 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A039532117263F002D7FD6 /* CardInfo.swift */; };
+		23AECF682118857000550893 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AECF662118857000550893 /* CollectionViewTableViewCell.swift */; };
+		23AECF692118857000550893 /* CollectionViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23AECF672118857000550893 /* CollectionViewTableViewCell.xib */; };
+		23AECF6C211888B900550893 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AECF6A211888B900550893 /* CollectionViewCell.swift */; };
+		23AECF6D211888B900550893 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23AECF6B211888B900550893 /* CollectionViewCell.xib */; };
 		23C581BC210C89ED00B5A151 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581BB210C89ED00B5A151 /* BoardViewModel.swift */; };
 		23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581BF210C8CF500B5A151 /* LoginViewModel.swift */; };
 		23C581C4210C9F8000B5A151 /* ServerManager + AutorizationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */; };
@@ -38,6 +55,10 @@
 		23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E121078B0200A258FA /* ServerManager.swift */; };
 		23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E521078BBF00A258FA /* LoginValidation.swift */; };
 		23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1C6E92107990B00A258FA /* UserSettings.swift */; };
+		23EA2A8B2118687900F92744 /* CardDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA2A8A2118687900F92744 /* CardDescriptionViewController.swift */; };
+		23EA2A8D21186BC400F92744 /* CardDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA2A8C21186BC400F92744 /* CardDescriptionViewModel.swift */; };
+		23EA2A902118787200F92744 /* CardCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA2A8E2118787200F92744 /* CardCellTableViewCell.swift */; };
+		23EA2A912118787200F92744 /* CardCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA2A8F2118787200F92744 /* CardCellTableViewCell.xib */; };
 		23FB5BA9210DDA3B00E14B50 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BA8210DDA3B00E14B50 /* List.swift */; };
 		23FB5BAB210DE1B300E14B50 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAA210DE1B300E14B50 /* DataSource.swift */; };
 		23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */; };
@@ -63,6 +84,15 @@
 		2325178E210B40F5005098EF /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewController.swift; sourceTree = "<group>"; };
 		2338A6892109B00100468395 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2338A68B2109BF8100468395 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
+		2339A9132112F79E008D8609 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2339A91B2112FC4B008D8609 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		2339A91D21130F60008D8609 /* Activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Activity.png; sourceTree = "<group>"; };
+		2339A91E21130F61008D8609 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		2339A91F21130F61008D8609 /* Mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mark.png; sourceTree = "<group>"; };
+		2339A92021130F61008D8609 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		2339A92121130F61008D8609 /* Chek.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chek.png; sourceTree = "<group>"; };
+		2339A92821130FF1008D8609 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		2339A92C21132697008D8609 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		235F1FE12109220E006E5861 /* BoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
 		235F1FE321092756006E5861 /* AddBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardViewController.swift; sourceTree = "<group>"; };
 		23741FD2210775F4008EE152 /* TrelloProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrelloProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,15 +103,27 @@
 		23741FDF210775F4008EE152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23741FE2210775F4008EE152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23741FE4210775F4008EE152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2389550C2117678D00BFA198 /* BoardTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTableViewModel.swift; sourceTree = "<group>"; };
+		23A0394F2116E169002D7FD6 /* CardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
+		23A0395121170D3A002D7FD6 /* ServerManager + DetailCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + DetailCards.swift"; sourceTree = "<group>"; };
+		23A039532117263F002D7FD6 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
+		23AECF662118857000550893 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		23AECF672118857000550893 /* CollectionViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewTableViewCell.xib; sourceTree = "<group>"; };
+		23AECF6A211888B900550893 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		23AECF6B211888B900550893 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		23C581BB210C89ED00B5A151 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
-		23C581BF210C8CF500B5A151 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		23C581BF210C8CF500B5A151 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = "View-ViewModel/LoginViewModel.swift"; sourceTree = "<group>"; };
 		23C581C3210C9F8000B5A151 /* ServerManager + AutorizationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + AutorizationUser.swift"; sourceTree = "<group>"; };
 		23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager + UsingBoards.swift"; sourceTree = "<group>"; };
 		23E1C6DD210783B300A258FA /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
-		23E1C6DF2107845A00A258FA /* trello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trello.png; path = Images/trello.png; sourceTree = "<group>"; };
+		23E1C6DF2107845A00A258FA /* trello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trello.png; sourceTree = "<group>"; };
 		23E1C6E121078B0200A258FA /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		23E1C6E521078BBF00A258FA /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
 		23E1C6E92107990B00A258FA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		23EA2A8A2118687900F92744 /* CardDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDescriptionViewController.swift; sourceTree = "<group>"; };
+		23EA2A8C21186BC400F92744 /* CardDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDescriptionViewModel.swift; sourceTree = "<group>"; };
+		23EA2A8E2118787200F92744 /* CardCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellTableViewCell.swift; sourceTree = "<group>"; };
+		23EA2A8F2118787200F92744 /* CardCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCellTableViewCell.xib; sourceTree = "<group>"; };
 		23FB5BA8210DDA3B00E14B50 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		23FB5BAA210DE1B300E14B50 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		23FB5BAC210DFA6D00E14B50 /* ListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPageViewController.swift; sourceTree = "<group>"; };
@@ -107,16 +149,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		231D9B1D210F0C6F009C2E84 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				23FB5BA8210DDA3B00E14B50 /* List.swift */,
-				231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		231D9B282110F81A009C2E84 /* Extantionals */ = {
+		231D9B282110F81A009C2E84 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
@@ -125,7 +158,65 @@
 				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
 				2313C0A8211267C10031A53C /* Notifications.swift */,
 			);
-			path = Extantionals;
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		2339A9102112F739008D8609 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2338A6892109B00100468395 /* Board.swift */,
+				23FB5BA8210DDA3B00E14B50 /* List.swift */,
+				2339A9132112F79E008D8609 /* Card.swift */,
+				23A039532117263F002D7FD6 /* CardInfo.swift */,
+				2339A9122112F773008D8609 /* Cells */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2339A9122112F773008D8609 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2338A68B2109BF8100468395 /* BoardTableViewCell.swift */,
+				231D9B20210F29D4009C2E84 /* CardTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2339A9152112F7C6008D8609 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				235F1FDC210907F2006E5861 /* Autorization */,
+				23C581BA210C88CB00B5A151 /* Boards */,
+				23FB5BB5210E3C6200E14B50 /* Lists */,
+				2339A9182112FC02008D8609 /* Cards */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2339A9182112FC02008D8609 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				23A0394F2116E169002D7FD6 /* CardTableViewController.swift */,
+				2339A91B2112FC4B008D8609 /* CardViewModel.swift */,
+				23EA2A8A2118687900F92744 /* CardDescriptionViewController.swift */,
+				23EA2A8C21186BC400F92744 /* CardDescriptionViewModel.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		2339A92721130F74008D8609 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2339A91D21130F60008D8609 /* Activity.png */,
+				2339A92121130F61008D8609 /* Chek.png */,
+				2339A92021130F61008D8609 /* clock.png */,
+				2339A91F21130F61008D8609 /* Mark.png */,
+				2339A92821130FF1008D8609 /* setting.png */,
+				2339A91E21130F61008D8609 /* user.png */,
+				23E1C6DF2107845A00A258FA /* trello.png */,
+			);
+			name = Images;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		235F1FD821090796006E5861 /* Services */ = {
@@ -142,7 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				23E1C6DD210783B300A258FA /* EnterViewController.swift */,
-				23C581BD210C8C8800B5A151 /* View-ViewModel */,
+				23741FD7210775F4008EE152 /* LoginViewController.swift */,
+				23C581BF210C8CF500B5A151 /* LoginViewModel.swift */,
 			);
 			path = Autorization;
 			sourceTree = "<group>";
@@ -169,19 +261,25 @@
 			isa = PBXGroup;
 			children = (
 				23741FD5210775F4008EE152 /* AppDelegate.swift */,
-				2313C0A621125BF70031A53C /* Rabish.swift */,
-				231D9B282110F81A009C2E84 /* Extantionals */,
-				235F1FDC210907F2006E5861 /* Autorization */,
-				23C581BA210C88CB00B5A151 /* Boards */,
-				23FB5BB5210E3C6200E14B50 /* Lists */,
+				23AECF662118857000550893 /* CollectionViewTableViewCell.swift */,
+				23AECF672118857000550893 /* CollectionViewTableViewCell.xib */,
+				23AECF6A211888B900550893 /* CollectionViewCell.swift */,
+				23AECF6B211888B900550893 /* CollectionViewCell.xib */,
+				23EA2A8E2118787200F92744 /* CardCellTableViewCell.swift */,
+				23EA2A8F2118787200F92744 /* CardCellTableViewCell.xib */,
+				2339A9152112F7C6008D8609 /* ViewControllers */,
+				2339A9102112F739008D8609 /* Model */,
+				231D9B282110F81A009C2E84 /* Extentions */,
 				235F1FD821090796006E5861 /* Services */,
 				23741FD9210775F4008EE152 /* Main.storyboard */,
 				230F89542109F7C600A70ED5 /* Boards.storyboard */,
+				2339A92C21132697008D8609 /* List.storyboard */,
+				2339A92721130F74008D8609 /* Images */,
 				23741FDF210775F4008EE152 /* Assets.xcassets */,
 				23741FE1210775F4008EE152 /* LaunchScreen.storyboard */,
 				23741FE4210775F4008EE152 /* Info.plist */,
 				23741FDC210775F4008EE152 /* TrelloProgect.xcdatamodeld */,
-				23E1C6DF2107845A00A258FA /* trello.png */,
+				2313C0A621125BF70031A53C /* Rabish.swift */,
 			);
 			path = TrelloProgect;
 			sourceTree = "<group>";
@@ -190,29 +288,12 @@
 			isa = PBXGroup;
 			children = (
 				2325178E210B40F5005098EF /* ColorTableViewController.swift */,
-				23C581BE210C8C9E00B5A151 /* View-ViewModel */,
-				23C581C8210CA15400B5A151 /* Model */,
-			);
-			path = Boards;
-			sourceTree = "<group>";
-		};
-		23C581BD210C8C8800B5A151 /* View-ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				23741FD7210775F4008EE152 /* LoginViewController.swift */,
-				23C581BF210C8CF500B5A151 /* LoginViewModel.swift */,
-			);
-			path = "View-ViewModel";
-			sourceTree = "<group>";
-		};
-		23C581BE210C8C9E00B5A151 /* View-ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 				235F1FE321092756006E5861 /* AddBoardViewController.swift */,
 				235F1FE12109220E006E5861 /* BoardTableViewController.swift */,
 				23C581BB210C89ED00B5A151 /* BoardViewModel.swift */,
+				2389550C2117678D00BFA198 /* BoardTableViewModel.swift */,
 			);
-			path = "View-ViewModel";
+			path = Boards;
 			sourceTree = "<group>";
 		};
 		23C581C2210C9F6300B5A151 /* Servermanager */ = {
@@ -223,17 +304,9 @@
 				23C581C5210CA04E00B5A151 /* ServerManager + UsingBoards.swift */,
 				23FB5BB0210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift */,
 				23FB5BB2210E0DDB00E14B50 /* ServerManager + CardOfList.swift */,
+				23A0395121170D3A002D7FD6 /* ServerManager + DetailCards.swift */,
 			);
 			path = Servermanager;
-			sourceTree = "<group>";
-		};
-		23C581C8210CA15400B5A151 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2338A68B2109BF8100468395 /* BoardTableViewCell.swift */,
-				2338A6892109B00100468395 /* Board.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		23FB5BB5210E3C6200E14B50 /* Lists */ = {
@@ -245,7 +318,6 @@
 				231D9B26210FE2B0009C2E84 /* ListCardsViewModel.swift */,
 				2313C0A02111C4320031A53C /* AddNewListViewController.swift */,
 				2313C0A42112371D0031A53C /* AddNewListViewModel.swift */,
-				231D9B1D210F0C6F009C2E84 /* Model */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -328,11 +400,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2339A92521130F62008D8609 /* clock.png in Resources */,
+				2339A92221130F62008D8609 /* Activity.png in Resources */,
+				23AECF692118857000550893 /* CollectionViewTableViewCell.xib in Resources */,
+				2339A92621130F62008D8609 /* Chek.png in Resources */,
 				230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */,
 				23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */,
+				2339A92921130FF2008D8609 /* setting.png in Resources */,
 				23741FE0210775F4008EE152 /* Assets.xcassets in Resources */,
+				2339A92321130F62008D8609 /* user.png in Resources */,
+				23EA2A912118787200F92744 /* CardCellTableViewCell.xib in Resources */,
 				23741FDB210775F4008EE152 /* Main.storyboard in Resources */,
+				2339A92421130F62008D8609 /* Mark.png in Resources */,
+				2339A92D21132697008D8609 /* List.storyboard in Resources */,
 				23E1C6E02107845A00A258FA /* trello.png in Resources */,
+				23AECF6D211888B900550893 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */,
+				23A0395221170D3A002D7FD6 /* ServerManager + DetailCards.swift in Sources */,
 				23FB5BB3210E0DDB00E14B50 /* ServerManager + CardOfList.swift in Sources */,
 				2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */,
 				23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */,
@@ -373,29 +456,39 @@
 				231D9B27210FE2B0009C2E84 /* ListCardsViewModel.swift in Sources */,
 				231D9B21210F29D4009C2E84 /* CardTableViewCell.swift in Sources */,
 				2313C0A52112371D0031A53C /* AddNewListViewModel.swift in Sources */,
+				23AECF6C211888B900550893 /* CollectionViewCell.swift in Sources */,
 				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
+				2339A9142112F79E008D8609 /* Card.swift in Sources */,
 				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
 				2313C0A12111C4320031A53C /* AddNewListViewController.swift in Sources */,
 				231D9B2C2110F90F009C2E84 /* AlertExtansion.swift in Sources */,
+				23A039502116E169002D7FD6 /* CardTableViewController.swift in Sources */,
 				2313C0A721125BF70031A53C /* Rabish.swift in Sources */,
 				231D9B2A2110F839009C2E84 /* ColorExtension.swift in Sources */,
+				23EA2A902118787200F92744 /* CardCellTableViewCell.swift in Sources */,
 				23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */,
 				23FB5BAB210DE1B300E14B50 /* DataSource.swift in Sources */,
 				23C581C6210CA04E00B5A151 /* ServerManager + UsingBoards.swift in Sources */,
 				23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */,
 				23E1C6E221078B0200A258FA /* ServerManager.swift in Sources */,
+				23EA2A8B2118687900F92744 /* CardDescriptionViewController.swift in Sources */,
 				23FB5BA9210DDA3B00E14B50 /* List.swift in Sources */,
+				23AECF682118857000550893 /* CollectionViewTableViewCell.swift in Sources */,
+				2389550D2117678D00BFA198 /* BoardTableViewModel.swift in Sources */,
 				23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */,
 				23FB5BB7210E4E4700E14B50 /* ListPageViewModel.swift in Sources */,
 				23C581C4210C9F8000B5A151 /* ServerManager + AutorizationUser.swift in Sources */,
 				235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */,
 				23C581BC210C89ED00B5A151 /* BoardViewModel.swift in Sources */,
 				2338A68A2109B00100468395 /* Board.swift in Sources */,
+				23A039542117263F002D7FD6 /* CardInfo.swift in Sources */,
 				2338A68C2109BF8100468395 /* BoardTableViewCell.swift in Sources */,
 				230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */,
+				23EA2A8D21186BC400F92744 /* CardDescriptionViewModel.swift in Sources */,
 				23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */,
 				23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */,
 				23FB5BAF210DFDC000E14B50 /* ListCardsViewController.swift in Sources */,
+				2339A91C2112FC4B008D8609 /* CardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

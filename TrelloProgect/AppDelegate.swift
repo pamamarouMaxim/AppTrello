@@ -75,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
       }
   }
-  
 }
 
 
@@ -107,7 +106,7 @@ extension AppDelegate {
       nameOfStoryBoard = Autorization.beforAutorizationViewController.storyBoardForAutorization()
     }
     
-    let navigationController = UIStoryboard.init(name: nameOfStoryBoard, bundle: Bundle.main).instantiateViewController(withIdentifier: identifireViewController) as? UINavigationController
+    let navigationController = UIStoryboard(name: nameOfStoryBoard, bundle: Bundle.main).instantiateViewController(withIdentifier: identifireViewController) as? UINavigationController
     
     if let controller = navigationController {
       self.window?.rootViewController = controller

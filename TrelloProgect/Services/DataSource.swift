@@ -16,7 +16,7 @@ protocol DataSource {
 }
 
 class ArrayDataSource: DataSource {
-  private var objects: [Any]
+   var objects: [Any]
   
   required init(with objects: [Any]) {
     self.objects = objects
