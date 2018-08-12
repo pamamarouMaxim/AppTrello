@@ -8,14 +8,16 @@
 
 import Foundation
 
-class CardDiscriptionViewModel {
+class CardDescriptionViewModel {
   
   var api  :  DetailCards
   var card : Card
+  var descriptionText : String
   
-  init(api : DetailCards, card : Card) {
+  init(api : DetailCards, card : Card, descriptionText : String) {
     self.api = api
     self.card = card
+    self.descriptionText = descriptionText
   }
   
   func postCardDescription(description: String,completion : @escaping (Error?) -> Void) {

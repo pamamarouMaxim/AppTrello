@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
           self?.viewModel.removeLogin()
           self?.activityIndicatorWithAction(.remove)
           guard let window = UIApplication.shared.windows.first else {return}
-          UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+          UIView.transition(with: window, duration: 1, options: .transitionFlipFromLeft , animations: {
           window.rootViewController = boardsNavigation
           }, completion: { completed in
          })

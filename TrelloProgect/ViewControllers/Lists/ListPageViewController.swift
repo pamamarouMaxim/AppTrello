@@ -59,7 +59,7 @@ class ListPageViewController: UIPageViewController {
     dataSource = self
     delegate = self
     listPageViewModel?.getListsFromBoard(completion: { [weak self](error) in
-      self?.controllers = [UIViewController]()
+      self?.controllers = []
       if let firstController = self?.createListCardViewController(indexPath: IndexPath(row: 0, section: 0)){
          self?.controllers?.append(firstController)
         if let first = self?.controllers?.first{

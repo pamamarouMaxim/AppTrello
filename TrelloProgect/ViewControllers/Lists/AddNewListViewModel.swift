@@ -20,9 +20,15 @@ class AddListViewModel {
     
   }
   
-  func   postNewListWithName(_ name : String,completion : @escaping (Result<BoardList>) -> Void) {
+//  func   postNewListWithName(_ name : String,completion : @escaping (Result<BoardList>) -> Void) {
+//    api.makeNewListInBoard(rootBoard.id, nameList: name) { (result) in
+//     completion(result)
+//    }
+//  }
+  
+  func   postNewListWithName(_ name : String,completion : @escaping (Error?) -> Void) {
     api.makeNewListInBoard(rootBoard.id, nameList: name) { (result) in
-     completion(result)
+     
     }
   }
 }

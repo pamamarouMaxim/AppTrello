@@ -34,6 +34,8 @@ extension ServerManager : DetailCards{
     requestWithData(url, method: method, parameters: parametrs) { (result : Result<CardInfo>) in
       completion(result)
     }
+    
+    
   }
   
   func putCardsId(_ cardId: String, description : String, completion : @escaping (Any?) -> Void){
@@ -47,15 +49,9 @@ extension ServerManager : DetailCards{
     }
   }
   
-  func getImageAttachmentUrl(_ url : String, completion: @escaping (Image?) -> Void)  {
-
+  func getImageAttachmentUrl(_ url : String, completion: @escaping (Image?) -> Void) {
     Alamofire.request(url).responseImage { response in
-      debugPrint(response)
-    
       completion(response.result.value)
     }
-    
   }
-  
-  
 }

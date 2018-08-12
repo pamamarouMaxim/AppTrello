@@ -23,8 +23,8 @@
         <relationship name="parentBoard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BoardEntity" inverseName="lists" inverseEntity="BoardEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BoardEntity" positionX="-10548" positionY="-1696" width="126" height="103"/>
+        <element name="BoardEntity" positionX="-10548" positionY="-1696" width="126" height="105"/>
+        <element name="CardEntity" positionX="-10125" positionY="-1773" width="128" height="163"/>
         <element name="ListEnity" positionX="-10341" positionY="-1696" width="128" height="103"/>
-        <element name="CardEntity" positionX="-10118" positionY="-1666" width="128" height="28"/>
     </elements>
 </model>

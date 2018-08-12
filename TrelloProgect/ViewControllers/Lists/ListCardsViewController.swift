@@ -19,6 +19,7 @@ class ListCardsViewController: UIViewController {
  
   override func viewDidLoad() {
       super.viewDidLoad()
+    startActivityIndicator()
     nameCardLabel.text = listCardsViewModel.bordList.name
     getAllCards()
   }
@@ -28,9 +29,19 @@ class ListCardsViewController: UIViewController {
   }
   
   private func getAllCards(){
-    listCardsViewModel.getCardsFromListWithId { [weak self](error) in
-    self?.newHeightTableView()
+  DispatchQueue.global(qos: .userInteractive).async {
+    self.listCardsViewModel.getCardsFromListWithId { [weak self](error) in
+      DispatchQueue.main.async {
+        if let error = error{
+          let alert = UIAlertController.alertWithError(error)
+          self?.present(alert, animated: true)
+        } else {
+          self?.newHeightTableView()
+        }
+        self?.stopActivityIndicator()
+      }
     }
+   }
   }
   
   private func showAlertForNewCard(){
@@ -72,7 +83,7 @@ class ListCardsViewController: UIViewController {
   private func getTableViewHeight()->CGFloat{
     cardTableView.reloadData()
     return cardTableView.contentSize.height + cardTableView.contentInset.bottom + cardTableView.contentInset.top
-  }
+  }  
 }
 
 extension ListCardsViewController : UITableViewDataSource{
@@ -115,7 +126,7 @@ extension ListCardsViewController : UITableViewDelegate{
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let card = listCardsViewModel.cardsDataSource?.item(at: indexPath) as? Card else {return}
     let  cardViewModel = CardViewModel(api: ServerManager.default, card: card,rootList: listCardsViewModel.bordList)
-    let controller = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "CardTableViewController") as? CardTableViewController
+    let controller = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "CardInfoTableViewController") as? CardInfoTableViewController
     guard let cardTableViewController = controller else {return}
     cardTableViewController.cardViewModel = cardViewModel
     tableView.deselectRow(at: indexPath, animated: false)

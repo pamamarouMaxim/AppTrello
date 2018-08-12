@@ -37,10 +37,14 @@ class BoardTableViewController: UITableViewController {
   
   override func viewDidLoad() {
       super.viewDidLoad()
+      startActivityIndicator()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    getBoardFromServer()
+   // getBoardFromServer()
+    boardViewModel.coreDataGetAllBoardWithComplitionBlock { (error) in
+      
+    }
     searchBar.returnKeyType = .done
     self.tableView.addSubview(refreshTableviewControl)
     navigationItem.title = "BOARDS"
@@ -93,13 +97,19 @@ class BoardTableViewController: UITableViewController {
   }
   
   private func getBoardFromServer() {
-    boardViewModel.getAllBoardWithComplitionBlock { [weak self](result) in
-      if let error = result{
-        let alert = UIAlertController.alertWithError(error)
-        self?.present(alert, animated: true)
-      } else {
-        self?.tableView.reloadData()
-        self?.currentArray = self?.boardViewModel.boardsDataSource?.objects
+    
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.boardViewModel.getAllBoardWithComplitionBlock { [weak self](result) in
+        DispatchQueue.main.async {
+          if let error = result{
+            let alert = UIAlertController.alertWithError(error)
+            self?.present(alert, animated: true)
+          } else {
+            self?.tableView.reloadData()
+            self?.currentArray = self?.boardViewModel.boardsDataSource?.objects
+          }
+          self?.stopActivityIndicator()
+        }
       }
     }
   }

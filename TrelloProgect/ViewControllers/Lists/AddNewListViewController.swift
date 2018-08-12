@@ -31,15 +31,15 @@ extension AddNewListViewController : UITextFieldDelegate{
     }
     guard let name = textField.text else {return false}
     addListViewModel.postNewListWithName(name) { [weak self](result) in
-      switch result{
-      case .success(let list):
-        if let completion = self?.onListAdded{
-           completion(list)
-        }
-      case .failure(let error):
-        let alert = UIAlertController.alertWithError(error)
-        self?.present(alert,animated: true)
-      }
+//      switch result{
+//      case .success(let list):
+//        if let completion = self?.onListAdded{
+//           completion(list)
+//        }
+//      case .failure(let error):
+//        let alert = UIAlertController.alertWithError(error)
+//        self?.present(alert,animated: true)
+//      }
     }
     textField.text = ""
     textField.resignFirstResponder()
