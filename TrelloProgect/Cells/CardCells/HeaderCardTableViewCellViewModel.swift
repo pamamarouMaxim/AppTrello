@@ -7,16 +7,16 @@
 //
 
 import Foundation
-//
-//class HeaderCardTableViewCellViewModel :  BindableCellViewModel{
-//
-////  var cardAndListNames : (String,String)?
-////
-////  var cellClass: Reusable.Type
-////
-////  init(cellClass : Reusable.Type) {
-////    self.cellClass = cellClass
-////  }
-//}
-//
+
+class HeaderCardTableViewCellViewModel :  BindableCellViewModel{
+
+  var cardAndListNames : (String,String)?
+
+  var cellClass: Reusable.Type
+
+  init(cellClass : Reusable.Type) {
+    self.cellClass = cellClass
+  }
+}
+
 

@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
-class BoardTableViewController: UITableViewController {
+class BoardTableViewController: UITableViewController,NSFetchedResultsControllerDelegate{
 
   var boardViewModel  = BoardTableViewModel()
   private var currentArray :[Any]?
+  private var secondTimeWillAppear = false
  
   @IBOutlet weak var searchBar: UISearchBar!
-
+  
+  let coreDataManager = CoreDataManager()
+  lazy var persistentContainer = coreDataManager.persistentContainer
+  
+  fileprivate lazy var fetchedResultsController: NSFetchedResultsController<BoardEntity> = {
+    let fetchRequest: NSFetchRequest<BoardEntity> = BoardEntity.fetchRequest()
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+    fetchedResultsController.delegate = self
+    return fetchedResultsController
+  }()
+  
   lazy var refreshTableviewControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(BoardTableViewController.handleRefresh(_:)),
@@ -37,45 +50,47 @@ class BoardTableViewController: UITableViewController {
   
   override func viewDidLoad() {
       super.viewDidLoad()
-      startActivityIndicator()
+    startActivityIndicator()
+    getBoardFromServer()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-   // getBoardFromServer()
-    boardViewModel.coreDataGetAllBoardWithComplitionBlock { (error) in
-      
-    }
     searchBar.returnKeyType = .done
     self.tableView.addSubview(refreshTableviewControl)
     navigationItem.title = "BOARDS"
+    if secondTimeWillAppear{
+       executeFetchRequest()
+    }
+    secondTimeWillAppear = true
+    stopActivityIndicator()
   }
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    guard let countOfSections = boardViewModel.boardsDataSource?.numberOfSections() else {return 1}
-    return countOfSections
-  }
-
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let countOfRows = boardViewModel.boardsDataSource?.numberOfItems(in: section) else {return 1}
-    return countOfRows
+    guard  let count = fetchedResultsController.fetchedObjects?.count else {return 0}
+    return count
   }
-
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: identifireOfCell, for: indexPath) as? BoardTableViewCell {
-      let board = boardViewModel.boardsDataSource?.item(at: indexPath)
-      guard let desk = board as? BoardViewModel else {return UITableViewCell()}
-      cell.nameOfBoard.text = desk.name
-      cell.idOfBoard.text = desk.id
-      cell.colorOfBoard.backgroundColor = desk.backgroundColor
-      return cell
+      guard let board = fetchedResultsController.object(at: indexPath) as? BoardEntity else {return UITableViewCell()}
+      cell.nameOfBoard.text = board.name
+      cell.idOfBoard.text = board.id
+      if let color = board.backgroundColor{
+        cell.colorOfBoard.backgroundColor = UIColor.colorWithHexString(hex: color)
       }
+      return cell
+    }
       return UITableViewCell()
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    
+    guard let boardEntity = fetchedResultsController.object(at: indexPath) as? BoardEntity else {return}
+    guard let id = boardEntity.id, let name = boardEntity.name, let color = boardEntity.backgroundColor else {return}
+    let board = Board(id: id, name: name, backgroundColor: color)
+    let boardViewModel = BoardViewModel(board)
     tableView.deselectRow(at: indexPath, animated: false)
-    guard let tapBoard = boardViewModel.boardsDataSource?.item(at: indexPath) as? BoardViewModel else {return}
-    let  listPageViewModel = ListPageViewModel(rootBoard: tapBoard)
+    let  listPageViewModel = ListPageViewModel(rootBoard: boardViewModel)
     let pageViewController = ListPageViewController(listPageViewModel: listPageViewModel)
     guard let window = UIApplication.shared.windows.first else  {return}
     let navigationController = UINavigationController(rootViewController: pageViewController)
@@ -97,21 +112,31 @@ class BoardTableViewController: UITableViewController {
   }
   
   private func getBoardFromServer() {
-    
     DispatchQueue.global(qos: .userInteractive).async {
       self.boardViewModel.getAllBoardWithComplitionBlock { [weak self](result) in
         DispatchQueue.main.async {
           if let error = result{
             let alert = UIAlertController.alertWithError(error)
             self?.present(alert, animated: true)
+            self?.executeFetchRequest()
           } else {
-            self?.tableView.reloadData()
-            self?.currentArray = self?.boardViewModel.boardsDataSource?.objects
+            self?.executeFetchRequest()
+           // self?.currentArray = self?.boardViewModel.boardsDataSource?.objects
           }
           self?.stopActivityIndicator()
         }
       }
     }
+  }
+  
+  private func executeFetchRequest(){
+    do {
+      try fetchedResultsController.performFetch()
+    } catch (let error){
+      let alert = UIAlertController.alertWithError(error)
+      self.present(alert, animated: true)
+    }
+    tableView.reloadData()
   }
 }
 
@@ -120,13 +145,13 @@ extension BoardTableViewController : UISearchBarDelegate{
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     guard let currentArray = currentArray  as? [BoardViewModel] else {return}
     guard !searchText.isEmpty else {
-       boardViewModel.boardsDataSource = ArrayDataSource(with: currentArray)
+     //  boardViewModel.boardsDataSource = ArrayDataSource(with: currentArray)
         tableView.reloadData()
         return
       }
-    boardViewModel.boardsDataSource?.objects = currentArray.filter({ (board) -> Bool in
-      board.name.lowercased().contains(searchText.lowercased())
-    })
+   // boardViewModel.boardsDataSource?.objects = currentArray.filter({ (board) -> Bool in
+    //  board.name.lowercased().contains(searchText.lowercased())
+  //  })
     tableView.reloadData()
   }
   

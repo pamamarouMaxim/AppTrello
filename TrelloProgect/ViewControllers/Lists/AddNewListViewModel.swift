@@ -8,27 +8,24 @@
 
 import Foundation
 import SwiftyJSON
+import CoreData
 
 class AddListViewModel {
   
   let api: UsingListsOfBoard
   var rootBoard : BoardViewModel
+  let coreDataManager =  CoreDataManager.default
   
   init(api: UsingListsOfBoard = ServerManager.default,rootBoard : BoardViewModel) {
     self.api = api
     self.rootBoard = rootBoard
     
   }
-  
-//  func   postNewListWithName(_ name : String,completion : @escaping (Result<BoardList>) -> Void) {
-//    api.makeNewListInBoard(rootBoard.id, nameList: name) { (result) in
-//     completion(result)
-//    }
-//  }
-  
-  func   postNewListWithName(_ name : String,completion : @escaping (Error?) -> Void) {
-    api.makeNewListInBoard(rootBoard.id, nameList: name) { (result) in
-     
+    
+  func   postNewListWithName(_ name : String,completion : @escaping (Any?) -> Void) {
+    coreDataManager.postNewList(withName: name, boardId: rootBoard.id) { (result) in
+      completion(result)
     }
+    
   }
 }

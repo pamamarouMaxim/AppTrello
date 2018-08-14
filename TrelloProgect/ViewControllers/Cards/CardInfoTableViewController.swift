@@ -16,7 +16,7 @@ class CardInfoTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = UITableViewAutomaticDimension
     registerCells()
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapBlurButton(_:)))
     imageView.addGestureRecognizer(tapGesture)
@@ -78,26 +78,23 @@ class CardInfoTableViewController: UITableViewController {
   private func getDataForTableView(){
     DispatchQueue.global(qos: .userInteractive).async {
       self.cardViewModel.getCardInfo {[weak self] (result) in
-        self?.cardViewModel.composeDataSource()
         DispatchQueue.main.async {
           if let error = result{
             let alert = UIAlertController.alertWithError(error)
             self?.present(alert,animated: true)
-          } else {
-            if self?.tableView.tableHeaderView == nil{
-              if let attachmentCount = self?.cardViewModel.cardInfo?.attachments.count{
-                if attachmentCount > 0{
-                   self?.addHeader(FromImageUrl: self?.cardViewModel.cardInfo?.attachments.first)
-                } else {
-                  self?.stopActivityIndicator()
-                  self?.tableView.reloadData()
-                }
+            self?.cardViewModel.getCardEntity()
+          }
+          self?.cardViewModel.composeDataSource()
+          if self?.tableView.tableHeaderView == nil{
+            if let attachmentCount = self?.cardViewModel.cardEntity?.attachments?.count{
+              if attachmentCount > 0{
+                self?.addHeader(FromImageUrl: self?.cardViewModel.cardEntity?.attachments?.first)
               }
-            } else {
-              self?.stopActivityIndicator()
-              self?.tableView.reloadData()
             }
           }
+         
+          self?.stopActivityIndicator()
+          self?.tableView.reloadData()
         }
       }
     }
@@ -122,7 +119,6 @@ class CardInfoTableViewController: UITableViewController {
   }
   
   private func registerCells(){
-    
     tableView.register(UINib.init(nibName: "CardCellTableViewCell", bundle: nil),
                        forCellReuseIdentifier: "CardCellTableViewCellIdentifier")
     tableView.register(CollectionTableViewCell.self,
@@ -132,5 +128,4 @@ class CardInfoTableViewController: UITableViewController {
     tableView.register(DescriptionCardTableViewCell.self,
                        forCellReuseIdentifier: "DescriptionCardTableViewCellIdentifier")
   }
-  
 }

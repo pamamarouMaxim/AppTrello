@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230CC0AE2122D66D008F1246 /* ImageFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0AD2122D66D008F1246 /* ImageFileName.swift */; };
+		230CC0B02122E420008F1246 /* GetSaveImageLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0AF2122E420008F1246 /* GetSaveImageLocal.swift */; };
+		230CC0B22122F2B6008F1246 /* CoreDataManager + Boards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0B12122F2B6008F1246 /* CoreDataManager + Boards.swift */; };
+		230CC0B52122F2E2008F1246 /* CoreDataManager + List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0B42122F2E2008F1246 /* CoreDataManager + List.swift */; };
+		230CC0B72122F2F4008F1246 /* CoreDataManager + Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0B62122F2F4008F1246 /* CoreDataManager + Card.swift */; };
 		230F89532109F1ED00A70ED5 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F89522109F1ED00A70ED5 /* ApiErrors.swift */; };
 		230F89552109F7C600A70ED5 /* Boards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230F89542109F7C600A70ED5 /* Boards.storyboard */; };
 		2313C0A12111C4320031A53C /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313C0A02111C4320031A53C /* AddNewListViewController.swift */; };
@@ -38,6 +43,7 @@
 		23741FE0210775F4008EE152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23741FDF210775F4008EE152 /* Assets.xcassets */; };
 		23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FE1210775F4008EE152 /* LaunchScreen.storyboard */; };
 		2389550D2117678D00BFA198 /* BoardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389550C2117678D00BFA198 /* BoardTableViewModel.swift */; };
+		238BE00E2120B203004E443A /* CompareServerRequestWithContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BE00D2120B203004E443A /* CompareServerRequestWithContext.swift */; };
 		238FBEE7211A276800284DB5 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FBEE6211A276800284DB5 /* Decodable.swift */; };
 		238FBEE9211AD57F00284DB5 /* HeaderCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FBEE8211AD57F00284DB5 /* HeaderCardTableViewCell.swift */; };
 		238FBEEB211ADBBE00284DB5 /* DescriptionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FBEEA211ADBBE00284DB5 /* DescriptionCardTableViewCell.swift */; };
@@ -80,6 +86,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		230CC0AD2122D66D008F1246 /* ImageFileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileName.swift; sourceTree = "<group>"; };
+		230CC0AF2122E420008F1246 /* GetSaveImageLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSaveImageLocal.swift; sourceTree = "<group>"; };
+		230CC0B12122F2B6008F1246 /* CoreDataManager + Boards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager + Boards.swift"; sourceTree = "<group>"; };
+		230CC0B42122F2E2008F1246 /* CoreDataManager + List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager + List.swift"; sourceTree = "<group>"; };
+		230CC0B62122F2F4008F1246 /* CoreDataManager + Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager + Card.swift"; sourceTree = "<group>"; };
 		230F89522109F1ED00A70ED5 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
 		230F89542109F7C600A70ED5 /* Boards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Boards.storyboard; sourceTree = "<group>"; };
 		2313C0A02111C4320031A53C /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +124,7 @@
 		23741FE2210775F4008EE152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23741FE4210775F4008EE152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2389550C2117678D00BFA198 /* BoardTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTableViewModel.swift; sourceTree = "<group>"; };
+		238BE00D2120B203004E443A /* CompareServerRequestWithContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareServerRequestWithContext.swift; sourceTree = "<group>"; };
 		238FBEE6211A276800284DB5 /* Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
 		238FBEE8211AD57F00284DB5 /* HeaderCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardTableViewCell.swift; sourceTree = "<group>"; };
 		238FBEEA211ADBBE00284DB5 /* DescriptionCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,16 +181,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230CC0B32122F2C2008F1246 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				23AECF6E2118C68000550893 /* CoreDataManager.swift */,
+				230CC0B12122F2B6008F1246 /* CoreDataManager + Boards.swift */,
+				230CC0B42122F2E2008F1246 /* CoreDataManager + List.swift */,
+				230CC0B62122F2F4008F1246 /* CoreDataManager + Card.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
 		231D9B282110F81A009C2E84 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				23D77656211CBFC70089B572 /* ActivityIndicatorExtension.swift */,
+				238BE00D2120B203004E443A /* CompareServerRequestWithContext.swift */,
 				23A0A923211F1A0300412A3E /* BoardEntityExtension.swift */,
 				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
 				238FBEE6211A276800284DB5 /* Decodable.swift */,
 				231D9B292110F839009C2E84 /* ColorExtension.swift */,
 				231D9B2B2110F90F009C2E84 /* AlertExtansion.swift */,
 				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
+				230CC0AD2122D66D008F1246 /* ImageFileName.swift */,
+				230CC0AF2122E420008F1246 /* GetSaveImageLocal.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -247,7 +273,7 @@
 			children = (
 				23E1C6E92107990B00A258FA /* UserSettings.swift */,
 				23C79BD52119A06D004467AE /* DefaultColors.swift */,
-				23AECF6E2118C68000550893 /* CoreDataManager.swift */,
+				230CC0B32122F2C2008F1246 /* CoreDataManager */,
 				23FB5BAA210DE1B300E14B50 /* DataSource.swift */,
 				23C581C2210C9F6300B5A151 /* Servermanager */,
 			);
@@ -328,8 +354,8 @@
 				2325178E210B40F5005098EF /* ColorTableViewController.swift */,
 				235F1FE321092756006E5861 /* AddBoardViewController.swift */,
 				235F1FE12109220E006E5861 /* BoardTableViewController.swift */,
-				23C581BB210C89ED00B5A151 /* BoardViewModel.swift */,
 				2389550C2117678D00BFA198 /* BoardTableViewModel.swift */,
+				23C581BB210C89ED00B5A151 /* BoardViewModel.swift */,
 			);
 			path = Boards;
 			sourceTree = "<group>";
@@ -498,14 +524,18 @@
 				23AECF6F2118C68000550893 /* CoreDataManager.swift in Sources */,
 				238FBEF6211B3E1400284DB5 /* CollectionViewCell.swift in Sources */,
 				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
+				238BE00E2120B203004E443A /* CompareServerRequestWithContext.swift in Sources */,
 				2339A9142112F79E008D8609 /* Card.swift in Sources */,
 				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
 				23C79BD62119A06D004467AE /* DefaultColors.swift in Sources */,
+				230CC0B52122F2E2008F1246 /* CoreDataManager + List.swift in Sources */,
 				2313C0A12111C4320031A53C /* AddNewListViewController.swift in Sources */,
+				230CC0B72122F2F4008F1246 /* CoreDataManager + Card.swift in Sources */,
 				231D9B2C2110F90F009C2E84 /* AlertExtansion.swift in Sources */,
 				2313C0A721125BF70031A53C /* Rabish.swift in Sources */,
 				231D9B2A2110F839009C2E84 /* ColorExtension.swift in Sources */,
 				23A3E1C0211D78A4002DEEBD /* HeaderCardTableViewCellViewModel.swift in Sources */,
+				230CC0B02122E420008F1246 /* GetSaveImageLocal.swift in Sources */,
 				23EA2A902118787200F92744 /* CardCellTableViewCell.swift in Sources */,
 				23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */,
 				238FBEF2211B3C2F00284DB5 /* CollectionTableViewCell.swift in Sources */,
@@ -517,6 +547,7 @@
 				23FB5BA9210DDA3B00E14B50 /* List.swift in Sources */,
 				23AECF682118857000550893 /* CellProtocols.swift in Sources */,
 				23A3E1C6211DCB5C002DEEBD /* CardInfoTableViewController.swift in Sources */,
+				230CC0B22122F2B6008F1246 /* CoreDataManager + Boards.swift in Sources */,
 				2389550D2117678D00BFA198 /* BoardTableViewModel.swift in Sources */,
 				23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */,
 				23FB5BB7210E4E4700E14B50 /* ListPageViewModel.swift in Sources */,
@@ -535,6 +566,7 @@
 				23741FDE210775F4008EE152 /* TrelloProgect.xcdatamodeld in Sources */,
 				23FB5BAD210DFA6D00E14B50 /* ListPageViewController.swift in Sources */,
 				23FB5BAF210DFDC000E14B50 /* ListCardsViewController.swift in Sources */,
+				230CC0AE2122D66D008F1246 /* ImageFileName.swift in Sources */,
 				238FBEFA211C436300284DB5 /* CardImageViewController.swift in Sources */,
 				2339A91C2112FC4B008D8609 /* CardInfoViewModel.swift in Sources */,
 			);

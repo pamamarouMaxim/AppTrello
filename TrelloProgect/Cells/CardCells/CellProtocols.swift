@@ -7,20 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class CellViewModel :  BindableCellViewModel{
+  
+  var cardInfo : CardEntity?
   
   var image: UIImage?
   
   var images: [UIImage]?
   
-  var due: String?
-  
-  var description: String?
-  
   var cardAndListNames : (String,String)?
-  
-  var attachments : [String]?
   
   private var UrlString : String?
   
@@ -31,15 +28,12 @@ class CellViewModel :  BindableCellViewModel{
   }
   
   // collection
-  
   func getImage(FromUrlSring stringUrl : String, complition :  @escaping (UIImage?)-> Void) {
     guard let url = URL(string: stringUrl) else {return}
-    let image = try? Data(contentsOf: url )
-    if let picture = image{
-       let image = UIImage(data :picture)
+    let object = GetSaveImageLocal()
+    object.getImage(FromUrl: url) { (image) in
       complition(image)
     }
-    complition(nil)
   }
 }
 
@@ -60,39 +54,17 @@ extension Reusable{
 
 protocol  BindableCellViewModel{
   
-  var image : UIImage? {get set}
-  var images: [UIImage]? {get set}
-  var due : String? {get set}
-  var description : String? {get set}
-  var cardAndListNames : (String,String)? {get set}
-  var attachments : [String]? {get set}
-  
+//  var image : UIImage? {get set}
+//  var images: [UIImage]? {get set}
+//  var cardAndListNames : (String,String)? {get set}
+//  var cardInfo : CardEntity? {get set}
+//
   var  cellClass :  Reusable.Type { get }
-  
-  func getImage(FromUrlSring stringUrl : String, complition :  @escaping (UIImage?)-> Void)
+//
+//  func getImage(FromUrlSring stringUrl : String, complition :  @escaping (UIImage?)-> Void)
 }
-
 
 protocol BindableCell : Reusable {
-  var viewModel : BindableCellViewModel? { get set }
+  //var viewModel : BindableCellViewModel? { get set }
   func setup(with viewModel: BindableCellViewModel)
 }
-
-//
-//let api: UseOfBoards
-//var setting: UserInputData = UserSettings.default
-//var boardsDataSource : ArrayDataSource?
-//
-//init(api: UseOfBoards = ServerManager.default) {
-//  self.api = api
-//}
-//
-////////
-//
-//let api: AuthorizationUser
-//var setting: UserInputData = UserSettings.default
-//
-//init(api: AuthorizationUser = ServerManager.default) {
-//  self.api = api
-//}
-

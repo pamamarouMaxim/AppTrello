@@ -16,6 +16,5 @@ import Foundation
 //  init(cellClass : Reusable.Type) {
 //    self.cellClass = cellClass
 //  }
-//  
 //}
 

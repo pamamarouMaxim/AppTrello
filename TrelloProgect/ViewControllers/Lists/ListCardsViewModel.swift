@@ -11,42 +11,22 @@ import SwiftyJSON
 
 class ListCardsViewModel {
   
-  let api: CardOfList =  ServerManager.default
   var bordList : BoardList!
-  var cardsDataSource : ArrayDataSource?
-  private var dueCompleteFalse: [Card]?
-  private var dueCompleteTrue: [Card]?
+  let coreDataManager = CoreDataManager.default
   
    init(bordList : BoardList) {
     self.bordList = bordList
   }
   
   func getCardsFromListWithId(comletion : @escaping (Error?) -> Void) {
-    api.getCardsForListId(bordList.id) { [weak self](result) in
-      switch result{
-      case .success(let cards) :
-         self?.dueCompleteFalse = cards.filter({ $0.dueComplete == false})
-         self?.dueCompleteTrue = cards.filter({ $0.dueComplete == true})
-        let complete = self?.dueCompleteTrue    ?? [Card]()
-        let notComplete = self?.dueCompleteFalse ?? [Card]()
-        self?.cardsDataSource = ArrayDataSource(with: [notComplete,complete])
-        comletion(nil)
-      case .failure(let error) : comletion(error)
-      }
+    coreDataManager.getCardsFromList(withId: bordList.id) { (result) in
+      comletion(result)
     }
   }
   
   func  postNewCardWithName(_ name : String, completion : @escaping (Error?)-> Void) {
-    api.postNewCardForListId(bordList.id, nameOfCard: name) { [weak self](result) in
-      switch result{
-      case .success(let card) :
-        self?.dueCompleteFalse?.append(card)
-        let complete = self?.dueCompleteTrue    ?? [Card]()
-        let notComplete = self?.dueCompleteFalse ?? [Card]()
-        self?.cardsDataSource = ArrayDataSource(with: [notComplete,complete])
-        completion(nil)
-      case .failure(let error) : completion(error)
-      }
+    coreDataManager.postNewCardFromList(withId: bordList.id, name: name) { (result) in
+      completion(result)
     }
   }
 }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class ListCardsViewController: UIViewController {
+class ListCardsViewController: UIViewController,NSFetchedResultsControllerDelegate {
 
   var listCardsViewModel : ListCardsViewModel!
   
@@ -17,6 +18,17 @@ class ListCardsViewController: UIViewController {
   @IBOutlet weak var nameCardLabel: UILabel!
   @IBOutlet weak var baseView: UIView!
  
+  let coreDataManager = CoreDataManager()
+  lazy var persistentContainer = coreDataManager.persistentContainer
+  
+  fileprivate lazy var fetchedResultsController: NSFetchedResultsController<CardEntity> = {
+    let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dueComplete", ascending: true)]
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+    fetchedResultsController.delegate = self
+    return fetchedResultsController
+  }()
+  
   override func viewDidLoad() {
       super.viewDidLoad()
     startActivityIndicator()
@@ -35,13 +47,24 @@ class ListCardsViewController: UIViewController {
         if let error = error{
           let alert = UIAlertController.alertWithError(error)
           self?.present(alert, animated: true)
+          self?.executeFetchRequest()
         } else {
-          self?.newHeightTableView()
+          self?.executeFetchRequest()
         }
         self?.stopActivityIndicator()
       }
     }
    }
+  }
+  
+  private func executeFetchRequest(){
+    do {
+      try fetchedResultsController.performFetch()
+    } catch (let error){
+      let alert = UIAlertController.alertWithError(error)
+      self.present(alert, animated: true)
+    }
+    newHeightTableView()
   }
   
   private func showAlertForNewCard(){
@@ -58,6 +81,11 @@ class ListCardsViewController: UIViewController {
             let alert = UIAlertController.alertWithError(error)
             self?.present(alert, animated: true) {}
           } else {
+              do {
+                try self?.fetchedResultsController.performFetch()
+              } catch {
+                
+              }
               self?.newHeightTableView()
           }
         })
@@ -89,24 +117,31 @@ class ListCardsViewController: UIViewController {
 extension ListCardsViewController : UITableViewDataSource{
   
   func numberOfSections(in tableView: UITableView) -> Int{
-    guard let sectons = listCardsViewModel.cardsDataSource?.numberOfSections() else {return 0}
-    return sectons
+    return  2
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    if listCardsViewModel.cardsDataSource?.numberOfItems != nil{
-     guard let rows = listCardsViewModel.cardsDataSource?.numberOfItems(in: section) else {return 0}
-      return rows
-      }
-    return 0
+    guard let fetchController = fetchedResultsController.fetchedObjects else {return 1}
+   
+    switch section {
+    case 0: return fetchController.filter({ $0.dueComplete == false}).count
+    case 1: return fetchController.filter({ $0.dueComplete == true}).count
+    default: return 0
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
       guard let cardCell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? CardTableViewCell else
       {return UITableViewCell()}
-      guard let object = listCardsViewModel.cardsDataSource?.item(at: IndexPath(row: indexPath.row, section: indexPath.section ))
-      else {return UITableViewCell()}
-      guard let card = object as? Card else {return UITableViewCell()}
+      guard let fetchController = fetchedResultsController.fetchedObjects else {return UITableViewCell()}
+    var card  = CardEntity()
+    var dueComplete = Bool()
+    if indexPath.section == 0{
+      dueComplete  = false
+    } else {
+       dueComplete = true
+    }
+      card = fetchController.filter({ $0.dueComplete == dueComplete})[indexPath.row]
       cardCell.cardNameLable.text = card.name
       cardCell.cardId = card.id
       return cardCell
@@ -124,8 +159,10 @@ extension ListCardsViewController : UITableViewDataSource{
 extension ListCardsViewController : UITableViewDelegate{
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let card = listCardsViewModel.cardsDataSource?.item(at: indexPath) as? Card else {return}
-    let  cardViewModel = CardViewModel(api: ServerManager.default, card: card,rootList: listCardsViewModel.bordList)
+    let card = fetchedResultsController.object(at: indexPath)
+    guard let id = card.id,let name = card.name else {return}
+    let value = Card(id: id, name: name, dueComplete: card.dueComplete)
+    let  cardViewModel = CardViewModel(api: ServerManager.default, card: value,rootList: listCardsViewModel.bordList)
     let controller = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "CardInfoTableViewController") as? CardInfoTableViewController
     guard let cardTableViewController = controller else {return}
     cardTableViewController.cardViewModel = cardViewModel

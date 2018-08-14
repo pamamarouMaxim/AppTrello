@@ -14,10 +14,11 @@ class DescriptionCardTableViewCell: UITableViewCell,BindableCell {
   
   func setup(with viewModel: BindableCellViewModel) {
     self.viewModel = viewModel
+    guard  let descrModel = viewModel as? CellViewModel else { return }
     textLabel?.numberOfLines = 0
-    if  let description = viewModel.description{
-      if !description.isEmpty{
-        textLabel?.text = description
+    if  let cardInfo = descrModel.cardInfo{
+      if !cardInfo.description.isEmpty{
+        textLabel?.text = cardInfo.desc
       } else {
         textLabel?.text = "Tap to add description"
         textLabel?.textColor = UIColor.lightGray
@@ -36,15 +37,4 @@ class DescriptionCardTableViewCell: UITableViewCell,BindableCell {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-     
-    }
-
 }

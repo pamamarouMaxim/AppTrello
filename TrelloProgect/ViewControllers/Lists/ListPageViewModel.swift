@@ -15,19 +15,16 @@ class ListPageViewModel {
   var rootBoard : BoardViewModel!
   var listsDataSource : ArrayDataSource?
   var controllers : [UIViewController]?
+  let coreDataManager = CoreDataManager.default
   
   init(rootBoard : BoardViewModel) {
     self.rootBoard = rootBoard
   }
   
+  
   func getListsFromBoard(completion : @escaping (Error?) -> Void)  {
-    api.getListsForBoard(rootBoard.id) { [weak self](response) in
-      switch response{
-      case .success(let lists) :
-        self?.listsDataSource = ArrayDataSource(with: lists)
-        completion(nil)
-      case .failure(let error)   : completion(error)
-      }
+    coreDataManager.getListsFromBoard(rootBoard.id) { (result) in
+      completion(result)
     }
   }
 }

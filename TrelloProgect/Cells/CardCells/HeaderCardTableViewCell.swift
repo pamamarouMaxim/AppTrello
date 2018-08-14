@@ -10,7 +10,7 @@ import UIKit
 
 class HeaderCardTableViewCell: UITableViewCell,BindableCell {
   
-  var viewModel: BindableCellViewModel?
+  var viewModel: HeaderCardTableViewCellViewModel?
   
   override var reuseIdentifier: String{
     return "HeaderCardTableViewCell"
@@ -36,12 +36,4 @@ class HeaderCardTableViewCell: UITableViewCell,BindableCell {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }  
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }
