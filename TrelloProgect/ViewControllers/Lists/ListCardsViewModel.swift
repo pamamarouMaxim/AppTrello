@@ -19,14 +19,22 @@ class ListCardsViewModel {
   }
   
   func getCardsFromListWithId(comletion : @escaping (Error?) -> Void) {
-    coreDataManager.getCardsFromList(withId: bordList.id) { (result) in
-      comletion(result)
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.coreDataManager.getCardsFromList(withId: self.bordList.id) { (result) in
+        DispatchQueue.main.async {
+           comletion(result)
+        }
+      }
     }
   }
   
   func  postNewCardWithName(_ name : String, completion : @escaping (Error?)-> Void) {
-    coreDataManager.postNewCardFromList(withId: bordList.id, name: name) { (result) in
-      completion(result)
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.coreDataManager.postNewCardFromList(withId: self.bordList.id, name: name) { (result)in
+        DispatchQueue.main.async {
+          completion(result)
+        }
+      }
     }
   }
 }

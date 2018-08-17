@@ -17,58 +17,43 @@ extension CoreDataManager{
       switch result{
       case .success(let cards) :
         guard let context = self?.writeContext else {return}
-        let requestCard = CardEntity.fetchRequest() as NSFetchRequest
-        var cardEntitys = [String]()
-        do {
-          let cards = try context.fetch(requestCard)
-          cardEntitys = cards.map({$0.id!})
-        } catch {
-          comletion(error)
-        }
-        
-        let difference = differenceArrays(cardEntitys, cards.map({$0.id}), with: { (a, b) -> Bool in
-          return a == b
-        })
-        
-        for value in difference.removed{
-          let predicate = NSPredicate(format: "id == %@", value)
-          requestCard.predicate = predicate
+        context.perform {
+          let request = CardEntity.fetchRequest() as NSFetchRequest
+          let predicate = NSPredicate(format: "parentList.id == %@", id)
+          request.predicate = predicate
           do {
-            let cards = try context.fetch(requestCard)
+            let cardEntitys = try context.fetch(request)
+            guard let listEntity = self?.getListEntity(WithId: id, context: context) else {return}
             for card in cards{
-              context.delete(card)
+              let cardEntity = cardEntitys.filter({$0.id == card.id})
+              if cardEntity.isEmpty{
+                let newCardEntity = CardEntity(context: context, card: card)
+                listEntity.addToCardsRelationship(newCardEntity)
+              } else if let firstCardEntity = cardEntity.first{
+                firstCardEntity.name = card.name
+                firstCardEntity.dueComplete = card.dueComplete
+              }
+            }
+            let cardEntitysId = cardEntitys.map({ (entity) -> String in
+              guard let id = entity.id else {return ""}
+              return id
+            })
+            let serverCardsId = cards.map({$0.id})
+            let objectDifference = Set(cardEntitysId).subtracting(serverCardsId)
+            for object in objectDifference{
+              let cardEntity = cardEntitys.filter({$0.id == object})
+              for entity in cardEntity{
+                context.delete(entity)
+              }
+            }
+            self?.save(Context: context)
+            DispatchQueue.main.async {
+               comletion(nil)
             }
           } catch {
             comletion(error)
           }
         }
-        
-        if difference.inserted.count > 0{
-          let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: context)
-          guard let cardEntity = entity else {return}
-          var cardsEntity = [CardEntity]()
-          for value in difference.inserted{
-            let card = cards.filter{$0.id == value}
-            for number in card{
-              let newCardEntity = CardEntity(entity: cardEntity, insertInto: context, card: number)
-              cardsEntity.append(newCardEntity)
-            }
-          }
-          
-          let listRequest = ListEntity.fetchRequest() as NSFetchRequest
-          let predicate = NSPredicate(format: "id == %@", id)
-          listRequest.predicate = predicate
-          do {
-            let list = try context.fetch(listRequest)
-            if let first = list.first{
-              first.addToCardsRelationship(NSSet(array: cardsEntity))
-            }
-          } catch (let error){
-            comletion(error)
-          }
-        }
-        self?.saveContext()
-        comletion(nil)
       case .failure(let error) : comletion(error)
       }
     }
@@ -79,22 +64,15 @@ extension CoreDataManager{
       switch result{
       case .success(let card) :
         guard let context = self?.writeContext else {return}
-        let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: context)
-        guard let cardEntity = entity else {return}
-        let entityCard = CardEntity(entity: cardEntity, insertInto: context, card: card)
-        let request = ListEntity.fetchRequest() as NSFetchRequest
-        let predicate = NSPredicate(format: "id == %@", id)
-        request.predicate = predicate
-        do {
-          let result = try context.fetch(request)
-          if let listEntity = result.first{
-            listEntity.addToCardsRelationship(entityCard)
+        context.perform {
+          guard let listEntity = self?.getListEntity(WithId: id, context: context) else {return}
+          let entityCard = CardEntity(context: context, card: card)
+          listEntity.addToCardsRelationship(entityCard)
+          self?.save(Context: context)
+          DispatchQueue.main.async {
+            completion(nil)
           }
-        } catch {
-          
         }
-        self?.saveContext()
-        completion(nil)
       case .failure(let error) : completion(error)
       }
     }
@@ -105,30 +83,55 @@ extension CoreDataManager{
       switch result {
       case .success(let cardInfo) :
         guard let context = self?.writeContext else {return}
-        let request = CardEntity.fetchRequest() as NSFetchRequest
-        let predicate = NSPredicate(format: "id == %@", cardId)
-        request.predicate = predicate
-        do {
-          let cardEntity = try context.fetch(request)
-          if let first = cardEntity.first{
-            first.attachments = cardInfo.attachments
-            first.date = cardInfo.due
-            first.desc = cardId.description
-            first.labels = cardInfo.labels
-            var imagesUrl = [String]()
-            for attachment in cardInfo.attachments{
-              imagesUrl.append(attachment.imageFileName())
+        context.perform {
+          let request = CardEntity.fetchRequest() as NSFetchRequest
+          let predicate = NSPredicate(format: "id == %@", cardId)
+          request.predicate = predicate
+          do {
+            let cardEntity = try context.fetch(request)
+            if let first = cardEntity.first{
+              first.attachments = cardInfo.attachments
+              first.date = cardInfo.due
+              first.desc = cardInfo.desc
+              first.labels = cardInfo.labels
+              if let imageUrl = first.imagesUrl{
+                let objectDifference = Set(imageUrl).subtracting(cardInfo.attachments)
+                let needRemoval = objectDifference.map({$0.imageFileName()})
+                DispatchQueue.global(qos: .background ).async {
+                  for imageName in needRemoval{
+                     LocalImagesProvider.default.removeImage(fileName: imageName)
+                  }
+                }
+                first.imagesUrl = cardInfo.attachments.map{$0.imageFileName()}
+              } else {
+                first.imagesUrl = cardInfo.attachments.map({$0.imageFileName()})
+              }
+              self?.save(Context: context)
+              DispatchQueue.main.async {
+                completion(first)
+              }
             }
-            first.imagesUrl = imagesUrl
-            self?.saveContext()
-            completion(first)
+          } catch {
+            completion(error)
           }
-        } catch {
-          completion(error)
         }
-        completion(nil)
       case .failure(let error): completion(error)
       }
     }
+  }
+  
+  private func getListEntity(WithId listId: String, context : NSManagedObjectContext) -> ListEntity?{
+     let fetchList = ListEntity.fetchRequest() as NSFetchRequest
+     let predicate = NSPredicate(format: "id == %@", listId)
+     fetchList.predicate = predicate
+    do {
+      let listEntity = try context.fetch(fetchList)
+      if  let firstListEntity = listEntity.first{
+        return firstListEntity
+      }
+    } catch {
+      return nil
+    }
+    return nil
   }
 }

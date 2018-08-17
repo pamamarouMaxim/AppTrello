@@ -11,6 +11,7 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
   
    var imageView: UIImageView!
+   var path : String?
 
   override var reuseIdentifier: String{
     return "cell"

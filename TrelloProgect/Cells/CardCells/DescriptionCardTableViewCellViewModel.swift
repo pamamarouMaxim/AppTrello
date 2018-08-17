@@ -8,14 +8,14 @@
 
 import Foundation
 
-//class DescriptionCardTableViewCellViewModel :  BindableCellViewModel{
-//  
-//  var description: String?
-//  
-//  var cellClass: Reusable.Type
-//  
-//  init(cellClass : Reusable.Type) {
-//    self.cellClass = cellClass
-//  }
-//}
+class DescriptionCardTableViewCellViewModel :  BindableCellViewModel{
+  
+  var cardInfo : CardEntity?
+  
+  var cellClass: Reusable.Type
+  
+  init(cellClass : Reusable.Type) {
+    self.cellClass = cellClass
+  }
+}
 

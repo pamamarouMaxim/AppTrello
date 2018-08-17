@@ -15,14 +15,22 @@ class BoardTableViewModel {
   let coreDataManager = CoreDataManager.default
   
   func postBoardwithName(_ name : String, color : String , completion: @escaping (Error?)  -> Void )  {
-    coreDataManager.postBoard(withName: name, color: color) { (response) in
-      completion(response)
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.coreDataManager.postBoard(withName: name, color: color) { (response) in
+        DispatchQueue.main.async {
+          completion(response)
+        }
+      }
     }
   }
  
   func getAllBoardWithComplitionBlock(_ completion : @escaping (Error?) -> Void) {
-    coreDataManager.getAllBoardWithComplitionBlock { (response) in
-      completion(response)
+    DispatchQueue.global(qos: .userInteractive).async {
+        self.coreDataManager.getAllBoardWithComplitionBlock { (response) in
+        DispatchQueue.main.async {
+           completion(response)
+        }
+      }
     }
   }
 }

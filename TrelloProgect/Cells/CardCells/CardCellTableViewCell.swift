@@ -21,9 +21,10 @@ class CardCellTableViewCell: UITableViewCell,BindableCell {
   
   func setup(with viewModel: BindableCellViewModel) {
     self.viewModel = viewModel
-    if let image = viewModel.image{
+    guard  let cardModel = viewModel as? CardCellTableViewCellViewModel else { return }
+    if let image = cardModel.image{
       cellImage.image = image
-      if let date =  viewModel.cardInfo?.date{
+      if let date =  cardModel.cardInfo?.date{
         if date != ""{
           var  due = date.replacingOccurrences(of: "T", with: " ")
           if let index = due.range(of: ".")?.lowerBound {

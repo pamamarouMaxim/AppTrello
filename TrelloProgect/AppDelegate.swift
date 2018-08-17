@@ -33,12 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-   
-    CoreDataManager.default.saveContext()
+    CoreDataManager.default.save(Context: CoreDataManager().persistentContainer.viewContext)
   }
  
 }
-
 
 extension AppDelegate {
   

@@ -10,13 +10,17 @@ import UIKit
 
 class CardImageViewController: UIViewController {
   
-  var image : UIImage?
+  var pathToImage : String?
   
   @IBOutlet private weak var imageView: UIImageView!
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    guard let image = image else {return}
-    imageView.image = image
+    guard let path = pathToImage else {return}
+    guard let url = URL(string: path)  else {return}
+    LocalImagesProvider.default.getImage(FromUrl: url) { (image) in
+      if let image = image {
+         imageView.image = image
+      }
+    }
   }
 }

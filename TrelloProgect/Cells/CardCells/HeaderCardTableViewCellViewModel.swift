@@ -11,7 +11,7 @@ import Foundation
 class HeaderCardTableViewCellViewModel :  BindableCellViewModel{
 
   var cardAndListNames : (String,String)?
-
+  var cardInfo : CardEntity?
   var cellClass: Reusable.Type
 
   init(cellClass : Reusable.Type) {

@@ -10,15 +10,16 @@ import UIKit
 
 class HeaderCardTableViewCell: UITableViewCell,BindableCell {
   
-  var viewModel: HeaderCardTableViewCellViewModel?
+  var viewModel: BindableCellViewModel?
   
   override var reuseIdentifier: String{
     return "HeaderCardTableViewCell"
   }
   
   func setup(with viewModel: BindableCellViewModel) {
-       self.viewModel = viewModel
-    if let (cardName,listName) = viewModel.cardAndListNames{
+    self.viewModel = viewModel
+    guard let model = viewModel as? HeaderCardTableViewCellViewModel else {return}
+    if let (cardName,listName) = model.cardAndListNames{
       textLabel?.text = cardName
       detailTextLabel?.text = "In list: " + listName
       textLabel?.textColor = UIColor.white

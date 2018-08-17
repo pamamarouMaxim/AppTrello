@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		230CC0AE2122D66D008F1246 /* ImageFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0AD2122D66D008F1246 /* ImageFileName.swift */; };
-		230CC0B02122E420008F1246 /* GetSaveImageLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0AF2122E420008F1246 /* GetSaveImageLocal.swift */; };
+		230CC0B02122E420008F1246 /* LocalImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0AF2122E420008F1246 /* LocalImagesProvider.swift */; };
 		230CC0B22122F2B6008F1246 /* CoreDataManager + Boards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0B12122F2B6008F1246 /* CoreDataManager + Boards.swift */; };
 		230CC0B52122F2E2008F1246 /* CoreDataManager + List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0B42122F2E2008F1246 /* CoreDataManager + List.swift */; };
 		230CC0B72122F2F4008F1246 /* CoreDataManager + Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CC0B62122F2F4008F1246 /* CoreDataManager + Card.swift */; };
@@ -36,6 +36,9 @@
 		2339A92D21132697008D8609 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2339A92C21132697008D8609 /* List.storyboard */; };
 		235F1FE22109220E006E5861 /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE12109220E006E5861 /* BoardTableViewController.swift */; };
 		235F1FE421092756006E5861 /* AddBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F1FE321092756006E5861 /* AddBoardViewController.swift */; };
+		23711545212416AD004E6C5B /* ListEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23711544212416AD004E6C5B /* ListEntityExtension.swift */; };
+		23711547212416BD004E6C5B /* CardEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23711546212416BD004E6C5B /* CardEntityExtension.swift */; };
+		2371154B2125B3E8004E6C5B /* AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2371154A2125B3E7004E6C5B /* AverageColor.swift */; };
 		23741FD6210775F4008EE152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23741FD5210775F4008EE152 /* AppDelegate.swift */; };
 		23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23741FD7210775F4008EE152 /* LoginViewController.swift */; };
 		23741FDB210775F4008EE152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FD9210775F4008EE152 /* Main.storyboard */; };
@@ -43,7 +46,6 @@
 		23741FE0210775F4008EE152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23741FDF210775F4008EE152 /* Assets.xcassets */; };
 		23741FE3210775F4008EE152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23741FE1210775F4008EE152 /* LaunchScreen.storyboard */; };
 		2389550D2117678D00BFA198 /* BoardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389550C2117678D00BFA198 /* BoardTableViewModel.swift */; };
-		238BE00E2120B203004E443A /* CompareServerRequestWithContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238BE00D2120B203004E443A /* CompareServerRequestWithContext.swift */; };
 		238FBEE7211A276800284DB5 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FBEE6211A276800284DB5 /* Decodable.swift */; };
 		238FBEE9211AD57F00284DB5 /* HeaderCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FBEE8211AD57F00284DB5 /* HeaderCardTableViewCell.swift */; };
 		238FBEEB211ADBBE00284DB5 /* DescriptionCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FBEEA211ADBBE00284DB5 /* DescriptionCardTableViewCell.swift */; };
@@ -87,7 +89,7 @@
 
 /* Begin PBXFileReference section */
 		230CC0AD2122D66D008F1246 /* ImageFileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileName.swift; sourceTree = "<group>"; };
-		230CC0AF2122E420008F1246 /* GetSaveImageLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSaveImageLocal.swift; sourceTree = "<group>"; };
+		230CC0AF2122E420008F1246 /* LocalImagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImagesProvider.swift; sourceTree = "<group>"; };
 		230CC0B12122F2B6008F1246 /* CoreDataManager + Boards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager + Boards.swift"; sourceTree = "<group>"; };
 		230CC0B42122F2E2008F1246 /* CoreDataManager + List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager + List.swift"; sourceTree = "<group>"; };
 		230CC0B62122F2F4008F1246 /* CoreDataManager + Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager + Card.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,9 @@
 		2339A92C21132697008D8609 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		235F1FE12109220E006E5861 /* BoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
 		235F1FE321092756006E5861 /* AddBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardViewController.swift; sourceTree = "<group>"; };
+		23711544212416AD004E6C5B /* ListEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntityExtension.swift; sourceTree = "<group>"; };
+		23711546212416BD004E6C5B /* CardEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEntityExtension.swift; sourceTree = "<group>"; };
+		2371154A2125B3E7004E6C5B /* AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageColor.swift; sourceTree = "<group>"; };
 		23741FD2210775F4008EE152 /* TrelloProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrelloProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23741FD5210775F4008EE152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23741FD7210775F4008EE152 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +129,6 @@
 		23741FE2210775F4008EE152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23741FE4210775F4008EE152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2389550C2117678D00BFA198 /* BoardTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTableViewModel.swift; sourceTree = "<group>"; };
-		238BE00D2120B203004E443A /* CompareServerRequestWithContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareServerRequestWithContext.swift; sourceTree = "<group>"; };
 		238FBEE6211A276800284DB5 /* Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
 		238FBEE8211AD57F00284DB5 /* HeaderCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardTableViewCell.swift; sourceTree = "<group>"; };
 		238FBEEA211ADBBE00284DB5 /* DescriptionCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,16 +199,15 @@
 		231D9B282110F81A009C2E84 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				2371154921246C86004E6C5B /* ManagedObject */,
 				23D77656211CBFC70089B572 /* ActivityIndicatorExtension.swift */,
-				238BE00D2120B203004E443A /* CompareServerRequestWithContext.swift */,
-				23A0A923211F1A0300412A3E /* BoardEntityExtension.swift */,
+				2371154A2125B3E7004E6C5B /* AverageColor.swift */,
 				23E1C6E521078BBF00A258FA /* LoginValidation.swift */,
 				238FBEE6211A276800284DB5 /* Decodable.swift */,
 				231D9B292110F839009C2E84 /* ColorExtension.swift */,
 				231D9B2B2110F90F009C2E84 /* AlertExtansion.swift */,
 				230F89522109F1ED00A70ED5 /* ApiErrors.swift */,
 				230CC0AD2122D66D008F1246 /* ImageFileName.swift */,
-				230CC0AF2122E420008F1246 /* GetSaveImageLocal.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -271,10 +274,11 @@
 		235F1FD821090796006E5861 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				230CC0AF2122E420008F1246 /* LocalImagesProvider.swift */,
 				23E1C6E92107990B00A258FA /* UserSettings.swift */,
 				23C79BD52119A06D004467AE /* DefaultColors.swift */,
-				230CC0B32122F2C2008F1246 /* CoreDataManager */,
 				23FB5BAA210DE1B300E14B50 /* DataSource.swift */,
+				230CC0B32122F2C2008F1246 /* CoreDataManager */,
 				23C581C2210C9F6300B5A151 /* Servermanager */,
 			);
 			path = Services;
@@ -288,6 +292,16 @@
 				23C581BF210C8CF500B5A151 /* LoginViewModel.swift */,
 			);
 			path = Autorization;
+			sourceTree = "<group>";
+		};
+		2371154921246C86004E6C5B /* ManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				23711546212416BD004E6C5B /* CardEntityExtension.swift */,
+				23A0A923211F1A0300412A3E /* BoardEntityExtension.swift */,
+				23711544212416AD004E6C5B /* ListEntityExtension.swift */,
+			);
+			path = ManagedObject;
 			sourceTree = "<group>";
 		};
 		23741FC9210775F4008EE152 = {
@@ -515,6 +529,7 @@
 				2325178F210B40F5005098EF /* ColorTableViewController.swift in Sources */,
 				23A3E1BA211D7828002DEEBD /* CollectionTableViewCellViewModel.swift in Sources */,
 				238FBEE9211AD57F00284DB5 /* HeaderCardTableViewCell.swift in Sources */,
+				23711547212416BD004E6C5B /* CardEntityExtension.swift in Sources */,
 				23E1C6DE210783B300A258FA /* EnterViewController.swift in Sources */,
 				23741FD8210775F4008EE152 /* LoginViewController.swift in Sources */,
 				231D9B27210FE2B0009C2E84 /* ListCardsViewModel.swift in Sources */,
@@ -524,7 +539,6 @@
 				23AECF6F2118C68000550893 /* CoreDataManager.swift in Sources */,
 				238FBEF6211B3E1400284DB5 /* CollectionViewCell.swift in Sources */,
 				23E1C6EA2107990B00A258FA /* UserSettings.swift in Sources */,
-				238BE00E2120B203004E443A /* CompareServerRequestWithContext.swift in Sources */,
 				2339A9142112F79E008D8609 /* Card.swift in Sources */,
 				23E1C6E621078BBF00A258FA /* LoginValidation.swift in Sources */,
 				23C79BD62119A06D004467AE /* DefaultColors.swift in Sources */,
@@ -535,7 +549,8 @@
 				2313C0A721125BF70031A53C /* Rabish.swift in Sources */,
 				231D9B2A2110F839009C2E84 /* ColorExtension.swift in Sources */,
 				23A3E1C0211D78A4002DEEBD /* HeaderCardTableViewCellViewModel.swift in Sources */,
-				230CC0B02122E420008F1246 /* GetSaveImageLocal.swift in Sources */,
+				230CC0B02122E420008F1246 /* LocalImagesProvider.swift in Sources */,
+				2371154B2125B3E8004E6C5B /* AverageColor.swift in Sources */,
 				23EA2A902118787200F92744 /* CardCellTableViewCell.swift in Sources */,
 				23FB5BB1210E043000E14B50 /* ServerManager + UsingListsOfBoard.swift in Sources */,
 				238FBEF2211B3C2F00284DB5 /* CollectionTableViewCell.swift in Sources */,
@@ -550,6 +565,7 @@
 				230CC0B22122F2B6008F1246 /* CoreDataManager + Boards.swift in Sources */,
 				2389550D2117678D00BFA198 /* BoardTableViewModel.swift in Sources */,
 				23C581C0210C8CF500B5A151 /* LoginViewModel.swift in Sources */,
+				23711545212416AD004E6C5B /* ListEntityExtension.swift in Sources */,
 				23FB5BB7210E4E4700E14B50 /* ListPageViewModel.swift in Sources */,
 				23C581C4210C9F8000B5A151 /* ServerManager + AutorizationUser.swift in Sources */,
 				23A3E1BE211D7875002DEEBD /* CardCellTableViewCellViewModel.swift in Sources */,
@@ -707,9 +723,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VDS9CCD4DD;
 				INFOPLIST_FILE = TrelloProgect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chicagobullet.TrelloProgect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chicagobullet.TrelloProgect123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -722,9 +740,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VDS9CCD4DD;
 				INFOPLIST_FILE = TrelloProgect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chicagobullet.TrelloProgect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chicagobullet.TrelloProgect123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

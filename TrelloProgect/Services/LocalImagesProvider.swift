@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-//TODO: LocalImagesPovider, split logic of saving to file and requesting image
-class GetSaveImageLocal {
+class LocalImagesProvider {
+  
+  static let `default` = LocalImagesProvider()
   
   func getImage(FromUrl url : URL, completion :(UIImage?) -> Void) {
     var imageName = String(describing: url)
@@ -22,44 +23,37 @@ class GetSaveImageLocal {
       guard let imageData = data else {return}
       let picture = UIImage(data: imageData)
       if let image = picture{
-        if saveImage(image: image, fileName: imageName){
-          if let image = getSavedImage(named: imageName) {
-            completion(image)
-          }
-        }
-        completion(image)
+          saveImage(image: image, fileName: imageName)
+          completion(image)
       }
       completion(nil)
     }
   }
   
-  func clearTempFolder() {
+  func removeImage(fileName: String){
     let fileManager = FileManager.default
-    let tempFolderPath = NSTemporaryDirectory()
+    guard let documentsUrl =  FileManager.default.urls(for: .documentDirectory,
+                                                       in: .userDomainMask).first else {return}
+    let documentPath = documentsUrl.path
     do {
-      let filePaths = try fileManager.contentsOfDirectory(atPath: tempFolderPath)
-      for filePath in filePaths {
-        try fileManager.removeItem(atPath: tempFolderPath + filePath)
-      }
+        let filePathName = "\(documentPath)/\(fileName)"
+        try fileManager.removeItem(atPath: filePathName)
     } catch {
-      print("Could not clear temp folder: \(error)")
     }
   }
   
-  
-  private func saveImage(image: UIImage, fileName : String) -> Bool {
+  func saveImage(image: UIImage, fileName : String) {
     do {
       let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
       let fileURL = documentsURL.appendingPathComponent("\(fileName)")
       if let pngImageData = UIImagePNGRepresentation(image) {
         try pngImageData.write(to: fileURL, options: .atomic)
-        return true
       }
-    } catch { return false}
-    return false
+    } catch {}
   }
   
-  private func getSavedImage(named: String) -> UIImage? {
+  
+  func getSavedImage(named: String) -> UIImage? {
     if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
       return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
     }

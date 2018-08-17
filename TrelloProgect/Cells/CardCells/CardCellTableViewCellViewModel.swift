@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
-//class CardCellTableViewCellViewModel :  BindableCellViewModel{
-//  
-//  var image: UIImage?
-//  
-//  var due: String?
-//  
-//  var cellClass: Reusable.Type
-//  
-//  init(cellClass : Reusable.Type) {
-//    self.cellClass = cellClass
-//  }
-//}
+class CardCellTableViewCellViewModel :  BindableCellViewModel{
+  
+  var image: UIImage?
+    
+  var cardInfo : CardEntity?
+  
+  var cellClass: Reusable.Type
+  
+  init(cellClass : Reusable.Type) {
+    self.cellClass = cellClass
+  }
+}
 
 

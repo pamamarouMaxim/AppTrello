@@ -31,46 +31,50 @@ class CardViewModel {
     guard let cardEntity = cardEntity else {return}
     
     //TODO: we should use different view models for different cells (1 cell view - 1 cell model)
-    let headerCard = CellViewModel(cellClass: HeaderCardTableViewCell.self)
+    let headerCard = HeaderCardTableViewCellViewModel.init(cellClass: HeaderCardTableViewCell.self)
     headerCard.cardInfo = cardEntity
     headerCard.cardAndListNames = (card.name,rootList.name)
     
-    let descriptionViewModel = CellViewModel(cellClass: DescriptionCardTableViewCell.self)
+    let descriptionViewModel = DescriptionCardTableViewCellViewModel(cellClass: DescriptionCardTableViewCell.self)
     descriptionViewModel.cardInfo = cardEntity
     
-    let dateViewModel = CellViewModel(cellClass: CardCellTableViewCell.self)
+    let dateViewModel = CardCellTableViewCellViewModel(cellClass: CardCellTableViewCell.self)
     dateViewModel.image = UIImage(named: "clock.png")
     dateViewModel.cardInfo = cardEntity
     
-    let labelsViewModel = CellViewModel(cellClass: CardCellTableViewCell.self)
+    let labelsViewModel = CardCellTableViewCellViewModel(cellClass: CardCellTableViewCell.self)
     labelsViewModel.image = UIImage(named : "Mark.png")
     
-    let usersViewModel = CellViewModel(cellClass: CardCellTableViewCell.self)
+    let usersViewModel = CardCellTableViewCellViewModel(cellClass: CardCellTableViewCell.self)
     usersViewModel.image = UIImage(named: "user.png")
     
     dataSourse = ArrayDataSource(with: [[headerCard,descriptionViewModel],[dateViewModel,labelsViewModel,usersViewModel]])
     
     guard let attachmentCount = cardEntity.attachments?.count else {return}
     if attachmentCount > 0{
-      let collectionTableViewCell = CellViewModel(cellClass: CollectionTableViewCell.self)
+      let collectionTableViewCell = CollectionTableViewCellViewModel(cellClass: CollectionTableViewCell.self)
       collectionTableViewCell.cardInfo = cardEntity
       dataSourse?.objects.append([collectionTableViewCell])
     }
   }
   
   func getCardInfo(completion:@escaping (Error?) -> Void) {
-    coreDataManager.getCardInfo(card.id) {[weak self] (result) in
-      if let cardEntity = result as? CardEntity{
-        self?.cardEntity = cardEntity
-        completion(nil)
-      } else if let error = result as? Error{
-         completion(error)
-      }
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.coreDataManager.getCardInfo(self.card.id) {[weak self] (result) in
+        DispatchQueue.main.async {
+          if let cardEntity = result as? CardEntity{
+            self?.cardEntity = cardEntity
+            completion(nil)
+          } else if let error = result as? Error{
+            self?.getCardEntity()
+            completion(error)
+          }
+        }
       }
     }
+  }
   
-  
-  func getCardEntity(){
+  private func getCardEntity(){
     let context = coreDataManager.readContext
     let request = CardEntity.fetchRequest() as NSFetchRequest
     let predicate = NSPredicate(format: "id == %@", card.id)
@@ -84,10 +88,14 @@ class CardViewModel {
     }
   }
   
-  func getImage(FromUrl url : URL, completion :(UIImage?) -> Void) {
-    let object = GetSaveImageLocal()
-    object.getImage(FromUrl: url) { (image) in
-      completion(image)
+  func getImage(FromUrl url : URL, completion :@escaping (UIImage?) -> Void) {
+    DispatchQueue.global(qos: .userInteractive).async {
+       let object = LocalImagesProvider.default
+      object.getImage(FromUrl: url) { (image) in
+        DispatchQueue.main.async {
+          completion(image)
+        }
+      }
     }
   }
 }

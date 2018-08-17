@@ -23,8 +23,10 @@ class ListCardsViewController: UIViewController,NSFetchedResultsControllerDelega
   
   fileprivate lazy var fetchedResultsController: NSFetchedResultsController<CardEntity> = {
     let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
+    let predicate = NSPredicate(format: "parentList.id == %@", listCardsViewModel.bordList.id)
+    fetchRequest.predicate = predicate
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dueComplete", ascending: true)]
-    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataManager.readContext, sectionNameKeyPath: nil, cacheName: nil)
     fetchedResultsController.delegate = self
     return fetchedResultsController
   }()
@@ -41,20 +43,14 @@ class ListCardsViewController: UIViewController,NSFetchedResultsControllerDelega
   }
   
   private func getAllCards(){
-  DispatchQueue.global(qos: .userInteractive).async {
     self.listCardsViewModel.getCardsFromListWithId { [weak self](error) in
-      DispatchQueue.main.async {
         if let error = error{
           let alert = UIAlertController.alertWithError(error)
           self?.present(alert, animated: true)
-          self?.executeFetchRequest()
-        } else {
-          self?.executeFetchRequest()
         }
+        self?.executeFetchRequest()
         self?.stopActivityIndicator()
-      }
     }
-   }
   }
   
   private func executeFetchRequest(){
@@ -121,8 +117,7 @@ extension ListCardsViewController : UITableViewDataSource{
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    guard let fetchController = fetchedResultsController.fetchedObjects else {return 1}
-   
+    guard let fetchController = fetchedResultsController.fetchedObjects else {return 0}
     switch section {
     case 0: return fetchController.filter({ $0.dueComplete == false}).count
     case 1: return fetchController.filter({ $0.dueComplete == true}).count
@@ -141,10 +136,14 @@ extension ListCardsViewController : UITableViewDataSource{
     } else {
        dueComplete = true
     }
+    let count = fetchController.filter({ $0.dueComplete == dueComplete}).count
+    if  count > 0{
       card = fetchController.filter({ $0.dueComplete == dueComplete})[indexPath.row]
       cardCell.cardNameLable.text = card.name
       cardCell.cardId = card.id
-      return cardCell
+        return cardCell
+      }
+    return UITableViewCell()
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{

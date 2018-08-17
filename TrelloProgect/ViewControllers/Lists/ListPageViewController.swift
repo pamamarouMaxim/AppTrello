@@ -20,8 +20,10 @@ class ListPageViewController: UIPageViewController, NSFetchedResultsControllerDe
   
   fileprivate lazy var fetchedResultsController: NSFetchedResultsController<ListEntity> = {
     let fetchRequest: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
+    let predicate = NSPredicate(format: "parentBoard.id == %@", (listPageViewModel?.rootBoard.id)!)
+    fetchRequest.predicate = predicate
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataManager.readContext, sectionNameKeyPath: nil, cacheName: nil)
     fetchedResultsController.delegate = self
     return fetchedResultsController
   }()
@@ -80,20 +82,21 @@ class ListPageViewController: UIPageViewController, NSFetchedResultsControllerDe
       if let error = error{
         let alert = UIAlertController.alertWithError(error)
         self?.present(alert,animated : true)
-        self?.loadViewControllers()
-      } else {
-        self?.loadViewControllers()
       }
+       self?.loadViewControllers()
     })
   }
 
   private func loadViewControllers(){
     controllers = []
     executeFetchRequest()
-    if let firstController = createListCardViewController(indexPath: IndexPath(row: 0, section: 0)) as? ListCardsViewController{
-      controllers?.append(firstController)
-      if let first = controllers?.first{
-        setViewControllers([first], direction: .forward, animated: true, completion: { (bool) in })
+    guard let count = fetchedResultsController.fetchedObjects?.count else {return}
+    if count > 0{
+      if let firstController = createListCardViewController(indexPath: IndexPath(row: 0, section: 0)) as? ListCardsViewController{
+        controllers?.append(firstController)
+        if let first = controllers?.first{
+          setViewControllers([first], direction: .forward, animated: true, completion: { (bool) in })
+        }
       }
     } else {
       guard let addNewListController = addListController else {return}
@@ -105,17 +108,20 @@ class ListPageViewController: UIPageViewController, NSFetchedResultsControllerDe
   @objc func goToRoot(_ sender : UIBarButtonItem){
     let navigationController = UIStoryboard(name: "Boards", bundle: Bundle.main).instantiateViewController(withIdentifier: "AfterNavigationController") as? UINavigationController
     if let controller = navigationController {
-      guard let window = UIApplication.shared.windows.first else {return}
-      UIView.transition(with: window, duration: 1, options: .transitionFlipFromLeft, animations: {
-        window.rootViewController = controller
-      }, completion: { completed in
-      })
+      guard let window = UIApplication.shared.windows.first else  {return}
+      let transition = CATransition()
+      transition.duration = 0.5
+      transition.type = kCATransitionPush
+      transition.subtype = kCATransitionFromLeft
+      transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+      window.layer.add(transition, forKey: kCATransition)
+      present(controller, animated: false, completion: nil)
     }
   }
   
   private func createListCardViewController(indexPath : IndexPath) -> UIViewController{
     let controller = UIStoryboard(name: "List", bundle: Bundle.main).instantiateViewController(withIdentifier: "ListCardsViewController") as? ListCardsViewController
-    guard let listEntity = fetchedResultsController.object(at: indexPath) as? ListEntity else {return UIViewController()}
+    let listEntity = fetchedResultsController.object(at: indexPath) 
     guard let id = listEntity.id,let name = listEntity.name else {return UIViewController()}
     let listOfBoard = BoardList(id: id, name: name)
     guard  let listCardsViewController = controller else {return UIViewController()}

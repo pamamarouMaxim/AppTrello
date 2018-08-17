@@ -43,11 +43,7 @@ class LoginViewController: UIViewController {
           self?.mailTextField.text = ""
           self?.viewModel.removeLogin()
           self?.activityIndicatorWithAction(.remove)
-          guard let window = UIApplication.shared.windows.first else {return}
-          UIView.transition(with: window, duration: 1, options: .transitionFlipFromLeft , animations: {
-          window.rootViewController = boardsNavigation
-          }, completion: { completed in
-         })
+          self?.present(boardsNavigation, animated: true, completion: { })
         }
       }
     }

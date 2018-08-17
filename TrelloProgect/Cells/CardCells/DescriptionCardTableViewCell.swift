@@ -14,10 +14,10 @@ class DescriptionCardTableViewCell: UITableViewCell,BindableCell {
   
   func setup(with viewModel: BindableCellViewModel) {
     self.viewModel = viewModel
-    guard  let descrModel = viewModel as? CellViewModel else { return }
+    guard  let descrModel = viewModel as? DescriptionCardTableViewCellViewModel else { return }
     textLabel?.numberOfLines = 0
     if  let cardInfo = descrModel.cardInfo{
-      if !cardInfo.description.isEmpty{
+      if cardInfo.desc != ""{
         textLabel?.text = cardInfo.desc
       } else {
         textLabel?.text = "Tap to add description"

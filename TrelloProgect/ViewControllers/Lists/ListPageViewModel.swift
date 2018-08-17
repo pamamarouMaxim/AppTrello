@@ -21,10 +21,13 @@ class ListPageViewModel {
     self.rootBoard = rootBoard
   }
   
-  
   func getListsFromBoard(completion : @escaping (Error?) -> Void)  {
-    coreDataManager.getListsFromBoard(rootBoard.id) { (result) in
-      completion(result)
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.coreDataManager.getListsFromBoard(self.rootBoard.id) { (result) in
+        DispatchQueue.main.async {
+          completion(result)
+        }
+      }
     }
   }
 }

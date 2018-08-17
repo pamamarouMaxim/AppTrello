@@ -14,6 +14,7 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
   var boardViewModel  = BoardTableViewModel()
   private var currentArray :[Any]?
   private var secondTimeWillAppear = false
+  fileprivate var boardEntytys = [BoardEntity]()
  
   @IBOutlet weak var searchBar: UISearchBar!
   
@@ -23,7 +24,7 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
   fileprivate lazy var fetchedResultsController: NSFetchedResultsController<BoardEntity> = {
     let fetchRequest: NSFetchRequest<BoardEntity> = BoardEntity.fetchRequest()
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataManager.readContext, sectionNameKeyPath: nil, cacheName: nil)
     fetchedResultsController.delegate = self
     return fetchedResultsController
   }()
@@ -58,6 +59,7 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
     searchBar.returnKeyType = .done
     self.tableView.addSubview(refreshTableviewControl)
     navigationItem.title = "BOARDS"
+    startActivityIndicator()
     if secondTimeWillAppear{
        executeFetchRequest()
     }
@@ -72,7 +74,7 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: identifireOfCell, for: indexPath) as? BoardTableViewCell {
-      guard let board = fetchedResultsController.object(at: indexPath) as? BoardEntity else {return UITableViewCell()}
+      let board = fetchedResultsController.object(at: indexPath)
       cell.nameOfBoard.text = board.name
       cell.idOfBoard.text = board.id
       if let color = board.backgroundColor{
@@ -85,7 +87,7 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
     
-    guard let boardEntity = fetchedResultsController.object(at: indexPath) as? BoardEntity else {return}
+    let boardEntity = fetchedResultsController.object(at: indexPath)
     guard let id = boardEntity.id, let name = boardEntity.name, let color = boardEntity.backgroundColor else {return}
     let board = Board(id: id, name: name, backgroundColor: color)
     let boardViewModel = BoardViewModel(board)
@@ -94,38 +96,34 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
     let pageViewController = ListPageViewController(listPageViewModel: listPageViewModel)
     guard let window = UIApplication.shared.windows.first else  {return}
     let navigationController = UINavigationController(rootViewController: pageViewController)
-    UIView.transition(with: window, duration: 1, options: .transitionFlipFromLeft, animations: {
-      window.rootViewController = navigationController
-    }, completion: { completed in })
+    let transition = CATransition()
+    transition.duration = 0.5
+    transition.type = kCATransitionPush
+    transition.subtype = kCATransitionFromRight
+    transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+    window.layer.add(transition, forKey: kCATransition)
+    present(navigationController, animated: false, completion: nil)
   }
   
   @IBAction func goToAutorizationScreen(_ sender: UIBarButtonItem) {
     let redistranionController = UIStoryboard.init(name: BoardTableViewController.storyboardBefore, bundle: Bundle.main).instantiateViewController(withIdentifier: BoardTableViewController.beforeViewController) as? UINavigationController
     if let controller = redistranionController{
-      guard let window = UIApplication.shared.windows.first else  {return}
       UserSettings.default.token = nil
       UserSettings.default.member = nil
-      UIView.transition(with: window, duration: 1, options: .transitionFlipFromLeft, animations: {
-        window.rootViewController = controller
-      }, completion: { completed in })
+      self.present(controller, animated: true, completion: { })
     }
   }
   
   private func getBoardFromServer() {
-    DispatchQueue.global(qos: .userInteractive).async {
-      self.boardViewModel.getAllBoardWithComplitionBlock { [weak self](result) in
-        DispatchQueue.main.async {
-          if let error = result{
-            let alert = UIAlertController.alertWithError(error)
-            self?.present(alert, animated: true)
-            self?.executeFetchRequest()
-          } else {
-            self?.executeFetchRequest()
-           // self?.currentArray = self?.boardViewModel.boardsDataSource?.objects
-          }
-          self?.stopActivityIndicator()
+    self.boardViewModel.getAllBoardWithComplitionBlock { [weak self](result) in
+        if let error = result{
+          let alert = UIAlertController.alertWithError(error)
+          self?.present(alert, animated: true)
+          self?.executeFetchRequest()
+        } else {
+          self?.executeFetchRequest()
         }
-      }
+        self?.stopActivityIndicator()
     }
   }
   
@@ -143,16 +141,14 @@ class BoardTableViewController: UITableViewController,NSFetchedResultsController
 extension BoardTableViewController : UISearchBarDelegate{
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    guard let currentArray = currentArray  as? [BoardViewModel] else {return}
+    fetchedResultsController.fetchRequest.predicate = nil
     guard !searchText.isEmpty else {
-     //  boardViewModel.boardsDataSource = ArrayDataSource(with: currentArray)
-        tableView.reloadData()
+      executeFetchRequest()
         return
       }
-   // boardViewModel.boardsDataSource?.objects = currentArray.filter({ (board) -> Bool in
-    //  board.name.lowercased().contains(searchText.lowercased())
-  //  })
-    tableView.reloadData()
+    let resultPredicate = NSPredicate(format: "name contains[c] %@", searchText)
+    fetchedResultsController.fetchRequest.predicate = resultPredicate
+    executeFetchRequest()
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
