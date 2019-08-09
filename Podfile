@@ -1,6 +1,8 @@
 
 platform :ios, ’10.0’
 
+use_frameworks!
+
 target ‘TrelloProgect’ do
  
 pod 'SwiftyJSON', '~> 4.0'
